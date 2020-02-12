@@ -7,7 +7,7 @@
 
     
 
-    <title>test | Clarice&#39;s blog</title>
+    <title>日常 | Clarice&#39;s blog</title>
     <meta name="author" content="Clarice" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -63,7 +63,7 @@
                 <span class="nav-text">首页</span>
             </a>
         
-            <a class="nav-item" href="/categories/daily">
+            <a class="nav-item" href="/daily">
                 <span class="nav-text">日常</span>
             </a>
         
@@ -75,11 +75,7 @@
                 <span class="nav-text">归档</span>
             </a>
         
-            <a class="nav-item" href="/atom.xml">
-                <span class="nav-text">订阅</span>
-            </a>
-        
-            <a class="nav-item" href="/about.md">
+            <a class="nav-item" href="/about">
                 <span class="nav-text">关于</span>
             </a>
         
@@ -91,8 +87,6 @@
     <div id="aside-inner" class="aside-inner">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
-        
-        
         
         
 
@@ -144,15 +138,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            test
+            日常
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2020/02/12/categories/tests/index.html">
+            <a class="article-date" href="http://yoursite.com/categories/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2020-02-12T01:26:39.212Z" itemprop="datePublished">2020-02-12</time>
+    <time datetime="2020-02-12T05:52:38.000Z" itemprop="datePublished">2020-02-12</time>
 </a>
 
             
@@ -166,15 +160,6 @@
         
     </section>
 </article>
-
-
-
-<a id="pagenext" href="/2020/02/09/categories/index/" class="article-next" title="categories"><i class="icon-arrow-right"></i></a>
-
-
-<a id="pageprev" href="/2020/02/12/about/" class="article-prev" title="about"><i class="icon-arrow-left"></i></a>
-
-
 
 
             </div>
@@ -238,33 +223,6 @@
         }
     });
     </script>
-    
-        
-<script src="/js/scrollspy.min.js"></script>
-
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
-
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
-
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
-
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
     
 
 </body>

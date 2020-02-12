@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-12T05:06:25.989Z</updated>
+  <updated>2020-02-12T05:22:37.104Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,49 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>about</title>
-    <link href="http://yoursite.com/2020/02/12/about/"/>
-    <id>http://yoursite.com/2020/02/12/about/</id>
-    <published>2020-02-12T03:50:40.174Z</published>
-    <updated>2020-02-12T05:06:25.989Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;About-Me&quot;&gt;&lt;a href=&quot;#About-Me&quot; class=&quot;headerlink&quot; title=&quot;About Me&quot;&gt;&lt;/a&gt;About Me&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;images/pictureInAboutMe.jpg&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>test</title>
-    <link href="http://yoursite.com/2020/02/12/categories/tests/"/>
-    <id>http://yoursite.com/2020/02/12/categories/tests/</id>
-    <published>2020-02-12T01:26:39.212Z</published>
-    <updated>2020-02-12T01:56:45.572Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>categories</title>
     <link href="http://yoursite.com/2020/02/09/categories/index/"/>
     <id>http://yoursite.com/2020/02/09/categories/index/</id>
     <published>2020-02-09T08:49:28.429Z</published>
-    <updated>2020-02-12T01:44:28.108Z</updated>
+    <updated>2020-02-12T05:22:37.104Z</updated>
     
     <summary type="html">
     
@@ -74,17 +36,11 @@
     <link href="http://yoursite.com/2020/02/08/hello-world/"/>
     <id>http://yoursite.com/2020/02/08/hello-world/</id>
     <published>2020-02-08T13:36:24.206Z</published>
-    <updated>2020-02-08T13:36:24.206Z</updated>
+    <updated>2020-02-12T06:00:43.600Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
-        
-      
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
     
     </summary>
     
