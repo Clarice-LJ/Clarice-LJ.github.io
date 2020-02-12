@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-12T05:22:37.104Z</updated>
+  <updated>2020-02-12T10:54:06.390Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《快乐的死》</title>
+    <link href="http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/"/>
+    <id>http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/</id>
+    <published>2020-02-12T09:49:03.000Z</published>
+    <updated>2020-02-12T10:54:06.390Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;加缪的处女作《快乐的死》&quot;&gt;&lt;a href=&quot;#加缪的处女作《快乐的死》&quot; class=&quot;headerlink&quot; title=&quot;加缪的处女作《快乐的死》&quot;&gt;&lt;/a&gt;加缪的处女作《快乐的死》&lt;/h3&gt;
+    
+    </summary>
+    
+    
+    
+      <category term="阿尔贝·加缪" scheme="http://yoursite.com/tags/%E9%98%BF%E5%B0%94%E8%B4%9D%C2%B7%E5%8A%A0%E7%BC%AA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2020-02-12</title>
+    <link href="http://yoursite.com/2020/02/12/2020-02-12/"/>
+    <id>http://yoursite.com/2020/02/12/2020-02-12/</id>
+    <published>2020-02-12T09:45:18.000Z</published>
+    <updated>2020-02-12T09:45:18.268Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>categories</title>
