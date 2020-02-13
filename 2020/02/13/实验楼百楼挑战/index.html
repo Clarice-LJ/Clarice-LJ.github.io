@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>实验楼百楼挑战 | Clarice&#39;s blog</title>
+    <meta name="author" content="Clarice" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="实验楼百楼挑战规则时间2.3~33，升楼100（学习有效时常50）即完成挑战。因为我是2.13才发现这个活动，所以就剩20天左右可以完成任务了。还是奖励和竞争最让人兴奋2.13第一题从Linux入门开始吧，一些关于Linux的基本操作。目录操作快捷操作查看目录中的内容$ ls进入目录$ cd回到上一级目录$ cd ..回到上一次所在的目录（类似于Windows的[后退]）$ cd -回到当前用户的主目录$ cd ~进入根目录$ cd /查看目录结构$ tree绝对路径获取..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Clarice&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon3.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Clarice&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/daily">
+                <span class="nav-text">日常</span>
+            </a>
+        
+            <a class="nav-item" href="/books">
+                <span class="nav-text">读书</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">标签</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#实验楼百楼挑战"><span class="toc-number">1.</span> <span class="toc-text">实验楼百楼挑战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#规则"><span class="toc-number">1.0.1.</span> <span class="toc-text">规则</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-13"><span class="toc-number">1.1.</span> <span class="toc-text">2.13</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录操作"><span class="toc-number">1.1.1.</span> <span class="toc-text">目录操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#快捷操作"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">快捷操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#绝对路径"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">绝对路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#新建目录"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">新建目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文件操作"><span class="toc-number">1.1.2.</span> <span class="toc-text">文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#新建空白文件"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">新建空白文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#移动与重命名"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">移动与重命名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查看文件"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">查看文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#帮助命令"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">帮助命令</span></a></li></ol></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            实验楼百楼挑战
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2020/02/13/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E7%99%BE%E6%A5%BC%E6%8C%91%E6%88%98/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-02-13T04:51:22.000Z" itemprop="datePublished">2020-02-13</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h1 id="实验楼百楼挑战"><a href="#实验楼百楼挑战" class="headerlink" title="实验楼百楼挑战"></a>实验楼百楼挑战</h1><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>时间<strong>2.3~33</strong>，升楼100（学习有效时常50）即完成挑战。因为我是2.13才发现这个活动，所以就剩20天左右可以完成任务了。还是奖励和竞争最让人兴奋</p>
+<h2 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h2><p>第一题从<strong>Linux入门</strong>开始吧，一些关于Linux的基本操作。</p>
+<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="快捷操作"><a href="#快捷操作" class="headerlink" title="快捷操作"></a>快捷操作</h4><p>查看目录中的内容</p>
+<pre><code>$ ls</code></pre><p>进入目录</p>
+<pre><code>$ cd</code></pre><p>回到上一级目录</p>
+<pre><code>$ cd ..</code></pre><p>回到上一次所在的目录（类似于Windows的[后退]）</p>
+<pre><code>$ cd -</code></pre><p>回到当前用户的主目录</p>
+<pre><code>$ cd ~</code></pre><p>进入根目录</p>
+<pre><code>$ cd /</code></pre><p>查看目录结构</p>
+<pre><code>$ tree</code></pre><h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p>获取当前目录的绝对路径</p>
+<pre><code>$ pwd</code></pre><blockquote>
+<p>Tips:<br>    Tab键可总动补全目录名、文件名或命令。<br>    连按两次Tab键可显示全部候选结果。</p>
+</blockquote>
+<h4 id="新建目录"><a href="#新建目录" class="headerlink" title="新建目录"></a>新建目录</h4><p>mkdir，如：</p>
+<pre><code>$ mkdir name</code></pre><p>一次性创建多级目录，如：</p>
+<pre><code>$ mkdir -p name1/name2/name3</code></pre><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="新建空白文件"><a href="#新建空白文件" class="headerlink" title="新建空白文件"></a>新建空白文件</h4><pre><code>$ touch name</code></pre><h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p>复制文件fileName到指定目录dir1/dir2下</p>
+<pre><code>$ cp fileName dir1/dir2</code></pre><p>复制目录dirName到指定目录dir1/dir2下</p>
+<pre><code>$ cp -r dirName dir1/dir2</code></pre><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><pre><code>$ rm fileName
+
+$ rm -r dirName</code></pre><h4 id="移动与重命名"><a href="#移动与重命名" class="headerlink" title="移动与重命名"></a>移动与重命名</h4><pre><code>$ mv fileName dirName
+
+$ mv oldName newName</code></pre><h4 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h4><p>显示文件内容</p>
+<pre><code>$ cat fileName</code></pre><p>带行号打印文件内容</p>
+<pre><code>$ cat -n fileName</code></pre><h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><p><strong>man</strong>(Manual pages的缩写)，eg:</p>
+<pre><code>$ man cat</code></pre><p>q退出<br /><br /><br><strong>–help</strong> , eg:</p>
+<pre><code>$ ls --help</code></pre><p><a href="https://www.shiyanlou.com/courses/1403/learning/" target="_blank" rel="noopener">实验楼</a>的总结图：<br /><br><img src="images/2.13linux%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93.jpg" alt="总结图"></p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/02/12/Python-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%A4%9A%E8%BF%9B%E7%A8%8B/" class="article-next" title="Python 多线程  多进程"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/02/13/Java%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="article-prev" title="Java实现个人博客"><i class="icon-arrow-left"></i></a>
+
+
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

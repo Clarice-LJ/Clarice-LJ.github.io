@@ -7,7 +7,7 @@
 
     
 
-    <title>Clarice&#39;s blog</title>
+    <title>Tag: Linux | Clarice&#39;s blog</title>
     <meta name="author" content="Clarice" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -59,7 +59,7 @@
 
     <nav id="nav-inner" class="nav-inner">
         
-            <a class="nav-item active" href="/">
+            <a class="nav-item" href="/">
                 <span class="nav-text">首页</span>
             </a>
         
@@ -71,7 +71,7 @@
                 <span class="nav-text">读书</span>
             </a>
         
-            <a class="nav-item" href="/tags">
+            <a class="nav-item active" href="/tags">
                 <span class="nav-text">标签</span>
             </a>
         
@@ -1484,624 +1484,49 @@ MDg6MDBd0y/HAAAAAElFTkSuQmCC" />
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
                 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/13/Python%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E2%80%94%E2%80%94%E5%90%AB%E8%93%84%E7%9A%84%E6%83%85%E4%BA%BA%E8%8A%82%E8%A1%A8%E7%99%BD%E5%9B%BE/">Python图片隐写——含蓄的情人节表白图</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-13T12:56:26.000Z" itemprop="datePublished">2020-02-13</time>
-</a>
 
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Python/" rel="tag">Python</a>
+
+<div class="page-hd">
+    Linux
+    <small>(1)</small>
 </div>
 
 
-        </div>
-    </header>
+
     
-    <section class="article-body markdown-body">
-        
-        <h1 id="喔今天是2-13啦，猜猜看明天是什么特殊的日子。"><a href="#喔今天是2-13啦，猜猜看明天是什么特殊的日子。" class="headerlink" title="喔今天是2.13啦，猜猜看明天是什么特殊的日子。"></a>喔今天是2.13啦，猜猜看明天是什么特殊的日子。</h1><p>得了吧，我的标题已经给你答案了，看看我们能做点什么有趣的事情。</p>
-<h2 id="简短的Python代码完成图片隐写"><a href="#简短的Python代码完成图片隐写" class="headerlink" title="简短的Python代码完成图片隐写"></a>简短的Python代码完成图片隐写</h2><blockquote>
-<p>首先，来讲讲原理。<br><br /><br />事实上，每一张图片都是由一个一个的像素点所组成的。而每个像素点，都有自己的颜色，其颜色可以用一个数组来表示：(a,b,c)，其中每位数的取值范围都是 0-255。<br><br /><br />比如(0,0,0)代表白色，(255,255,255)代表黑色。当像素点足够多的时候，这张照片就是我们所说的高清照片。而如果当像素点太少，我们的肉眼就能感知到明显的锯齿感。<br><br /><br />我只要每个像素取出一个像素值，并使用这个像素做为该字的颜色即可，在像素量够多的情况下，从远处看，是能看到我们原来图像的轮廓的。<br><br /><br />有了思路，就可以开始我们的代码。</p>
-</blockquote>
-<p>——摘自 微信公众号<strong>Python编程时光</strong></p>
-<pre><code>from PIL import Image, ImageDraw, ImageFont
-
-font_size = 7
-text = &quot;I love you!&quot;
-img_path = &quot;F://ggy.jpeg&quot;
-
-img_raw = Image.open(img_path)
-img_array = img_raw.load()
-
-img_new = Image.new(&quot;RGB&quot;, img_raw.size, (0, 0, 0))
-draw = ImageDraw.Draw(img_new)
-font = ImageFont.truetype(&apos;C:/Windows/fonts/Dengl.ttf&apos;, font_size)
-
-def character_generator(text):
-    while True:
-        for i in range(len(text)):
-            yield text[i]
-
-ch_gen = character_generator(text)
-
-for y in range(0, img_raw.size[1], font_size):
-    for x in range(0, img_raw.size[0], font_size):
-        draw.text((x, y), next(ch_gen), font=font, fill=img_array[x, y], direction=None)
-
-img_new.convert(&apos;RGB&apos;).save(&quot;F://save.jpeg&quot;)</code></pre><h2 id="我遇到的问题"><a href="#我遇到的问题" class="headerlink" title="我遇到的问题"></a>我遇到的问题</h2><h3 id="路径与转义字符"><a href="#路径与转义字符" class="headerlink" title="\ 路径与转义字符"></a>\ 路径与转义字符</h3><p>第一次报错</p>
-<blockquote>
-<p>SyntaxError: (unicode error) ‘unicodeescape’ codec can’t decode bytes in position 2-3: truncated \UXXXXXXXX escape</p>
-</blockquote>
-<p>在<a href="https://www.cnblogs.com/rychh/p/9743864.html" target="_blank" rel="noopener">这里</a>找到了答案<br /><br>路径中的\符号被识别成了转义字符，无法找到正确的路径。<br /><br /><br>在字符串前加 <strong>r</strong> 即可声明字符串不用转义。如：</p>
-<pre><code>path = r&quot;C:\Windows\user\fonts\msyh_boot.ttf&quot;</code></pre><p>或用Linux的路径格式</p>
-<pre><code>path = &quot;C:/Windows/user/fonts/msyh_boot.ttf&quot;</code></pre><h3 id="PIL模块中的ImageDraw使用"><a href="#PIL模块中的ImageDraw使用" class="headerlink" title="PIL模块中的ImageDraw使用"></a>PIL模块中的ImageDraw使用</h3><p>第二次报错</p>
-<blockquote>
-<p>TypeError: ‘module’ object is not callable<br>原代码</p>
-</blockquote>
-<pre><code>draw = ImageDraw(img_new)</code></pre><p>ImageDraw的使用错误了。抄代码哪哪儿都爽，就是人家打错了我只能抓瞎。花了好长时间才找到这个问题。<br><br /><br />修改：</p>
-<pre><code>draw = ImageDraw.Draw(img_new)</code></pre><p><br /><br /><br /><br>目前效果极其不理想……<br /><br>原图<br><br /><img src="images/%E5%9B%BE%E7%89%871.jpg" alt="原图"><br><br /><br />成品(font-size = 7)<br /><br><img src="images/PictureSecretTest.jpg" alt="7号"><br><br />也许是<strong>喜欢</strong>两个字太难写，也许是爱实在说不出口……<br><br /><br /><br>这个丑陋的图片……我尝试着把font-size分别改成3<br /><br><img src="images/PictureSecretTest2.jpg" alt="3号"><br><br />和5<br /><br><img src="images/PictureSecretTest3.jpg" alt="5号"><br><br />显然越来越糟</p>
-<p><br /><br /><br>我一度以为换成简单的英文字母会好一点<br /><br><img src="images/PictureSecretTest7.jpg" alt="英文"></p>
-<p><br /><br /><br>这些问题留到情人节解决吧，好在我是一条狗，不着急把成品做出来。</p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
     
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/13/Github%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/">Github快速上手</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
     
-    <i class="icon-calendar"></i>
     
-    <time datetime="2020-02-13T06:51:00.000Z" itemprop="datePublished">2020-02-13</time>
+    
+    <section class="archives-wrap">
+    <div class="archive-year-wrap">
+    <a href="/archives/2020" class="page-hd">
+        2020
+    </a>
+    </div>
+    <ol class="archives">
+    
+
+    <li class="archive-section-item">
+        
+<article class="archive-article archive-type-daily">
+    <div class="archive-article-inner">
+        <header class="archive-article-header">
+            <a class="archive-article-link" href="/2020/02/13/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E7%99%BE%E6%A5%BC%E6%8C%91%E6%88%98/">实验楼百楼挑战</a>
+            <span class="archive-article-date">
+                (<a class="article-date" href="/archives/2020/02">
+    
+    <time datetime="2020-02-13T04:51:22.000Z" itemprop="datePublished">2/13</time>
 </a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Github/" rel="tag">Github</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>本文内容为Github<strong>基础</strong><br /><br /><br><strong>知识点</strong></p>
-<ul>
-<li>SSH公私钥的基本使用</li>
-<li>Github的基本使用</li>
-<li>Git工具的基本使用</li>
-</ul>
-<h2 id="SSH公私钥的基本使用"><a href="#SSH公私钥的基本使用" class="headerlink" title="SSH公私钥的基本使用"></a>SSH公私钥的基本使用</h2><p>(已注册Github用户后)</p>
-<h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>用以下命令生成公私钥</p>
-<pre><code>$ ssh-keygen</code></pre><p><strong>Enter file in which to save the key</strong>字样处输入密钥文件的保存路径，直接回车键为默认路径<br /><br><strong>Enter passphrase</strong>及<strong>Enter same passphrase</strong>设置密码，一路回车跳过……<br><br /><br /><br><font color=#0099ff><strong>~/.ssh/</strong></font>路径下，后缀为<font color=#0099ff><strong>.pub</strong></font>为<strong>公钥文件</strong>，无后缀为<strong>私钥文件</strong>。</p>
-<h3 id="关联SSH公钥到Github账户"><a href="#关联SSH公钥到Github账户" class="headerlink" title="关联SSH公钥到Github账户"></a>关联SSH公钥到Github账户</h3><p>点击Github右上角头像<br /><br><font color=#0099ff>Settings</font> -&gt; <font color=#0099ff>SSH and GPG keys</font> -&gt; <font color=#0099ff>New SSH key</font> -&gt;Title任意填写，复制公钥文件的内容至Key -&gt; <font color=#0099ff>Add SSH key</font><br><br /><br /><br><strong>验证连接</strong><br /><br>打开Git Bash</p>
-<pre><code>$ ssh -T git@github.com</code></pre><p>出现”Are you sure…”,输入yes,回车<br><br />显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
-<h3 id="配置用户名与邮箱"><a href="#配置用户名与邮箱" class="headerlink" title="配置用户名与邮箱"></a>配置用户名与邮箱</h3><p>安装完Git工具以后</p>
-<pre><code>$ git config --global user.name &quot;你的用户名&quot;
-
-$ git config --global user.email &quot;你的邮箱&quot;</code></pre><h2 id="Github及Git工具的基本使用"><a href="#Github及Git工具的基本使用" class="headerlink" title="Github及Git工具的基本使用"></a>Github及Git工具的基本使用</h2><h3 id="克隆仓库到本地PC"><a href="#克隆仓库到本地PC" class="headerlink" title="克隆仓库到本地PC"></a>克隆仓库到本地PC</h3><p>找到你感兴趣的项目，获得仓库地址。<br>在Git Bash中键入以下命令：</p>
-<pre><code>$ git clone 仓库地址</code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre><code>$ git add &lt;文件名|路径&gt;</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>$ git rm &lt;文件名|路径&gt;</code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><pre><code>$ git reset</code></pre><h3 id="提交仓库的改动"><a href="#提交仓库的改动" class="headerlink" title="提交仓库的改动"></a>提交仓库的改动</h3><pre><code>$ git commit -m &quot;你的提交备注&quot;</code></pre><h3 id="推送改动到远程仓库"><a href="#推送改动到远程仓库" class="headerlink" title="推送改动到远程仓库"></a>推送改动到远程仓库</h3><pre><code>$ git push origin &lt;分支名&gt;</code></pre><p>使用<font color=#0099ff>-u</font>参数之后会绑定这一次的仓库分支名，下一次推送不需要加上分支名。eg:</p>
-<pre><code>$ git push -u origin master</code></pre><h3 id="查看仓库改动"><a href="#查看仓库改动" class="headerlink" title="查看仓库改动"></a>查看仓库改动</h3><p>git fetch origin</p>
-<pre><code>$ git fetch</code></pre><h3 id="下拉仓库同步"><a href="#下拉仓库同步" class="headerlink" title="下拉仓库同步"></a>下拉仓库同步</h3><p>git pull origin &lt;分支名&gt;</p>
-<pre><code>$ git pull</code></pre>
-        
-    </section>
+)
+            </span>
+        </header>
+    </div>
 </article>
+    </li>
 
 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/13/Java%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Java实现个人博客</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-13T06:36:52.000Z" itemprop="datePublished">2020-02-13</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Java/" rel="tag">Java</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>今天在实验楼闲逛，发现了这个有趣的限免课程。哪里有遇到便宜不捡的道理？虽然连Java的门都没入，但我还是要硬着头皮捡便宜。</p>
-<h3 id="知识点"><a href="#知识点" class="headerlink" title="知识点"></a>知识点</h3><ul>
-<li>Spring MVC</li>
-<li>Spring</li>
-<li>Mybatis</li>
-<li>CSS/JS</li>
-<li>Jquery</li>
-</ul>
-<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ul>
-<li>WEB IDE</li>
-<li>Mysql</li>
-<li>SSM 框架所需Jar包</li>
-<li>MarkDown编辑器EditorMd</li>
-<li>Jetty9</li>
-</ul>
-<p>虽然会的不多，<br /><br>不过没关系，我是<strong>时间大亨</strong>。</p>
-<p>获取实验源码</p>
-<pre><code>$ wget http://labfile.oss.aliyuncs.com/courses/930/PersonalBlog.zip</code></pre><h3 id="开发准备"><a href="#开发准备" class="headerlink" title="开发准备"></a>开发准备</h3><ul>
-<li>项目创建</li>
-<li>JAR 包的导入</li>
-<li>第三方插件的下载</li>
-<li>页面所需图片下载</li>
-<li>创建数据库。</li>
-</ul>
-<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p><img src="images/PersonalBlog_%E7%BB%93%E6%9E%841.PNG" alt="结构1"><br /><br /><br><strong>java</strong>目录<br /><br><img src="images/PersonalBlog_%E7%BB%93%E6%9E%842.PNG" alt="结构2"><br /><br /><br><strong>resources</strong>及<strong>webapp</strong>目录<br /><br><img src="images/PersonalBlog_%E7%BB%93%E6%9E%843.PNG" alt="结构3"></p>
-<h3 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h3><p>在WEB IDE的终端中输入</p>
-<pre><code>mvn archetype:generate \
--DgroupId=com.shiyanlou \
--DartifactId=PersonalBlog \
--DarchetypeArtifactId=maven-archetype-webapp</code></pre><p><strong>mvn</strong>为<strong>Maven命令</strong></p>
-<blockquote>
-<p>Maven 翻译为”专家”、”内行”，是 Apache 下的一个纯 Java 开发的开源项目。基于项目对象模型（缩写：POM）概念，Maven利用一个中央信息片断能管理一个项目的构建、报告和文档等步骤。<br>Maven 是一个项目管理工具，可以对 Java 项目进行构建、依赖管理。<br>Maven 也可被用于构建和管理各种项目，例如 C#，Ruby，Scala 和其他语言编写的项目。Maven 曾是 Jakarta 项目的子项目，现为由 Apache 软件基金会主持的独立 Apache 项目。</p>
-</blockquote>
-<p>————引自菜鸟教程中的<a href="https://www.runoob.com/maven/maven-tutorial.html" target="_blank" rel="noopener">Maven教程</a><br /><br /><br>参数说明：</p>
-<ul>
-<li>Group Id：项目的组织机构，也是包的目录结构，一般都是域名的倒序，比如 com.shiyanlou；</li>
-<li>Atifact Id ：项目实际的名字，比如 PersonalBlog；</li>
-<li>archetype Artifact Id ：使用的maven骨架名称</li>
-</ul>
-<p>这个下载时间有点久啊……<br><br /><br /><br>输入命令之后，maven会提示我们输入版本号，这里可以直接定义版本号也可以直接回车，接着maven会提示当前要创建项目的基本信息，输入y然后回车确认。 接着在src/main/目录中创建java目录。</p>
-<h3 id="Jar包导入"><a href="#Jar包导入" class="headerlink" title="Jar包导入"></a>Jar包导入</h3><p>打开pom.xml文件，修改为下面的内容：</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
-         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
-    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-
-&lt;groupId&gt;com.shiyanlou&lt;/groupId&gt;
-&lt;artifactId&gt;PersonalBlog&lt;/artifactId&gt;
-&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
-&lt;packaging&gt;war&lt;/packaging&gt;
-
-&lt;properties&gt;
-
-    &lt;jdbc.driver.version&gt;5.1.25&lt;/jdbc.driver.version&gt;
-    &lt;mybatis.version&gt;3.3.0&lt;/mybatis.version&gt;
-    &lt;mybatis-spring.version&gt;1.2.2&lt;/mybatis-spring.version&gt;
-    &lt;spring.version&gt;5.1.1.RELEASE&lt;/spring.version&gt;
-    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
-    &lt;autoconfig-plugin-version&gt;1.2&lt;/autoconfig-plugin-version&gt;
-    &lt;maven.test.skip&gt;true&lt;/maven.test.skip&gt;
-&lt;/properties&gt;
-
-&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;junit&lt;/groupId&gt;
-        &lt;artifactId&gt;junit&lt;/artifactId&gt;
-        &lt;version&gt;4.12&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-        &lt;scope&gt;test&lt;/scope&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- commons 包依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;commons-logging&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-logging&lt;/artifactId&gt;
-        &lt;version&gt;1.1.3&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;commons-collections&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-collections&lt;/artifactId&gt;
-        &lt;version&gt;3.2.1&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;commons-io&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
-        &lt;version&gt;2.4&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;commons-lang&lt;/groupId&gt;
-        &lt;artifactId&gt;commons-lang&lt;/artifactId&gt;
-        &lt;version&gt;2.6&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;!-- 数据库包依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
-        &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
-        &lt;version&gt;${mybatis.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
-        &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
-        &lt;version&gt;${mybatis-spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;mysql&lt;/groupId&gt;
-        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-        &lt;version&gt;${jdbc.driver.version}&lt;/version&gt;
-        &lt;scope&gt;runtime&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;!-- 日志包依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-        &lt;artifactId&gt;slf4j-api&lt;/artifactId&gt;
-        &lt;version&gt;1.7.7&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
-        &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
-        &lt;version&gt;1.7.7&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;log4j&lt;/groupId&gt;
-        &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-        &lt;version&gt;1.2.16&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- aspectj 包依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
-        &lt;artifactId&gt;aspectjrt&lt;/artifactId&gt;
-        &lt;version&gt;1.7.4&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
-        &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
-        &lt;version&gt;1.7.4&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;!-- Spring 依赖 --&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-core&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-beans&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-context-support&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-tx&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
-        &lt;version&gt;${spring.version}&lt;/version&gt;
-    &lt;/dependency&gt;
-
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-        &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
-        &lt;version&gt;3.1.0&lt;/version&gt;
-        &lt;scope&gt;provided&lt;/scope&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
-        &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
-        &lt;version&gt;2.2&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-        &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-        &lt;version&gt;1.2&lt;/version&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;
-&lt;build&gt;
-    &lt;resources&gt;
-        &lt;resource&gt;
-            &lt;directory&gt;src/main/java&lt;/directory&gt;
-            &lt;includes&gt;
-                &lt;include&gt;**/*.xml&lt;/include&gt;
-            &lt;/includes&gt;
-        &lt;/resource&gt;
-            &lt;resource&gt;
-            &lt;directory&gt;src/main/resources&lt;/directory&gt;
-            &lt;includes&gt;
-                &lt;include&gt;**/**&lt;/include&gt;
-            &lt;/includes&gt;
-        &lt;/resource&gt;
-    &lt;/resources&gt;
-    &lt;plugins&gt;
-        &lt;plugin&gt;
-            &lt;!--jetty maven插件，为maven提供运行web程序的能力--&gt;
-            &lt;groupId&gt;org.eclipse.jetty&lt;/groupId&gt;
-            &lt;artifactId&gt;jetty-maven-plugin&lt;/artifactId&gt;
-            &lt;version&gt;9.4.12.v20180830&lt;/version&gt;
-            &lt;configuration&gt;
-                &lt;scanIntervalSeconds&gt;10&lt;/scanIntervalSeconds&gt;
-                &lt;webApp&gt;
-                    &lt;contextPath&gt;/&lt;/contextPath&gt;
-                &lt;/webApp&gt;
-            &lt;/configuration&gt;
-        &lt;/plugin&gt;
-    &lt;/plugins&gt;
-&lt;/build&gt;</code></pre></project>
-
-<p><br /><br /><font color=#0099ff>朕乏了</font></p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/13/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E7%99%BE%E6%A5%BC%E6%8C%91%E6%88%98/">实验楼百楼挑战</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-13T04:51:22.000Z" itemprop="datePublished">2020-02-13</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h1 id="实验楼百楼挑战"><a href="#实验楼百楼挑战" class="headerlink" title="实验楼百楼挑战"></a>实验楼百楼挑战</h1><h3 id="规则"><a href="#规则" class="headerlink" title="规则"></a>规则</h3><p>时间<strong>2.3~33</strong>，升楼100（学习有效时常50）即完成挑战。因为我是2.13才发现这个活动，所以就剩20天左右可以完成任务了。还是奖励和竞争最让人兴奋</p>
-<h2 id="2-13"><a href="#2-13" class="headerlink" title="2.13"></a>2.13</h2><p>第一题从<strong>Linux入门</strong>开始吧，一些关于Linux的基本操作。</p>
-<h3 id="目录操作"><a href="#目录操作" class="headerlink" title="目录操作"></a>目录操作</h3><h4 id="快捷操作"><a href="#快捷操作" class="headerlink" title="快捷操作"></a>快捷操作</h4><p>查看目录中的内容</p>
-<pre><code>$ ls</code></pre><p>进入目录</p>
-<pre><code>$ cd</code></pre><p>回到上一级目录</p>
-<pre><code>$ cd ..</code></pre><p>回到上一次所在的目录（类似于Windows的[后退]）</p>
-<pre><code>$ cd -</code></pre><p>回到当前用户的主目录</p>
-<pre><code>$ cd ~</code></pre><p>进入根目录</p>
-<pre><code>$ cd /</code></pre><p>查看目录结构</p>
-<pre><code>$ tree</code></pre><h4 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h4><p>获取当前目录的绝对路径</p>
-<pre><code>$ pwd</code></pre><blockquote>
-<p>Tips:<br>    Tab键可总动补全目录名、文件名或命令。<br>    连按两次Tab键可显示全部候选结果。</p>
-</blockquote>
-<h4 id="新建目录"><a href="#新建目录" class="headerlink" title="新建目录"></a>新建目录</h4><p>mkdir，如：</p>
-<pre><code>$ mkdir name</code></pre><p>一次性创建多级目录，如：</p>
-<pre><code>$ mkdir -p name1/name2/name3</code></pre><h3 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h3><h4 id="新建空白文件"><a href="#新建空白文件" class="headerlink" title="新建空白文件"></a>新建空白文件</h4><pre><code>$ touch name</code></pre><h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><p>复制文件fileName到指定目录dir1/dir2下</p>
-<pre><code>$ cp fileName dir1/dir2</code></pre><p>复制目录dirName到指定目录dir1/dir2下</p>
-<pre><code>$ cp -r dirName dir1/dir2</code></pre><h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><pre><code>$ rm fileName
-
-$ rm -r dirName</code></pre><h4 id="移动与重命名"><a href="#移动与重命名" class="headerlink" title="移动与重命名"></a>移动与重命名</h4><pre><code>$ mv fileName dirName
-
-$ mv oldName newName</code></pre><h4 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h4><p>显示文件内容</p>
-<pre><code>$ cat fileName</code></pre><p>带行号打印文件内容</p>
-<pre><code>$ cat -n fileName</code></pre><h4 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h4><p><strong>man</strong>(Manual pages的缩写)，eg:</p>
-<pre><code>$ man cat</code></pre><p>q退出<br /><br /><br><strong>–help</strong> , eg:</p>
-<pre><code>$ ls --help</code></pre><p><a href="https://www.shiyanlou.com/courses/1403/learning/" target="_blank" rel="noopener">实验楼</a>的总结图：<br /><br><img src="images/2.13linux%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C%E6%80%BB%E7%BB%93.jpg" alt="总结图"></p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/12/Python-%E5%A4%9A%E7%BA%BF%E7%A8%8B-%E5%A4%9A%E8%BF%9B%E7%A8%8B/">Python 多线程  多进程</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-12T13:05:03.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Python/" rel="tag">Python</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/">《快乐的死》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-12T09:49:03.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E9%98%BF%E5%B0%94%E8%B4%9D%C2%B7%E5%8A%A0%E7%BC%AA/" rel="tag">阿尔贝·加缪</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h3 id="加缪的处女作《快乐的死》"><a href="#加缪的处女作《快乐的死》" class="headerlink" title="加缪的处女作《快乐的死》"></a>加缪的处女作《快乐的死》</h3>
-        
-        <p class="article-more-link">
-            <a href="/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/12/2020-02-12/">2020-02-12</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-12T09:45:18.000Z" itemprop="datePublished">2020-02-12</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/09/categories/index/">categories</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-09T08:49:28.429Z" itemprop="datePublished">2020-02-09</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/08/hello-world/">Hello World</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-08T13:36:24.206Z" itemprop="datePublished">2020-02-08</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/02/08/hello-world/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
+</ol></section>
 
 
 
