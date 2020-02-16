@@ -138,7 +138,7 @@
     
     <section class="article-body markdown-body">
         
-        <p>本文内容为Github<strong>基础</strong><br /><br /></p>
+        <p>本文内容为Github<strong>基础</strong><br><br></p>
 <a id="more"></a>
 <p><strong>知识点</strong></p>
 <ul>
@@ -148,14 +148,14 @@
 </ul>
 <h2 id="SSH公私钥的基本使用"><a href="#SSH公私钥的基本使用" class="headerlink" title="SSH公私钥的基本使用"></a>SSH公私钥的基本使用</h2><p>(已注册Github用户后)</p>
 <h3 id="创建密钥"><a href="#创建密钥" class="headerlink" title="创建密钥"></a>创建密钥</h3><p>用以下命令生成公私钥</p>
-<pre><code>$ ssh-keygen</code></pre><p><strong>Enter file in which to save the key</strong>字样处输入密钥文件的保存路径，直接回车键为默认路径<br /><br><strong>Enter passphrase</strong>及<strong>Enter same passphrase</strong>设置密码，一路回车跳过……<br><br /><br /><br><font color=#0099ff><strong>~/.ssh/</strong></font>路径下，后缀为<font color=#0099ff><strong>.pub</strong></font>为<strong>公钥文件</strong>，无后缀为<strong>私钥文件</strong>。</p>
-<h3 id="关联SSH公钥到Github账户"><a href="#关联SSH公钥到Github账户" class="headerlink" title="关联SSH公钥到Github账户"></a>关联SSH公钥到Github账户</h3><p>点击Github右上角头像<br /><br><font color=#0099ff>Settings</font> -&gt; <font color=#0099ff>SSH and GPG keys</font> -&gt; <font color=#0099ff>New SSH key</font> -&gt;Title任意填写，复制公钥文件的内容至Key -&gt; <font color=#0099ff>Add SSH key</font><br><br /><br /><br><strong>验证连接</strong><br /><br>打开Git Bash</p>
-<pre><code>$ ssh -T git@github.com</code></pre><p>出现”Are you sure…”,输入yes,回车<br><br />显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
+<pre><code>$ ssh-keygen</code></pre><p><strong>Enter file in which to save the key</strong>字样处输入密钥文件的保存路径，直接回车键为默认路径<br><br><strong>Enter passphrase</strong>及<strong>Enter same passphrase</strong>设置密码，一路回车跳过……<br><br><br><br><font color="#0099ff"><strong>~/.ssh/</strong></font>路径下，后缀为<font color="#0099ff"><strong>.pub</strong></font>为<strong>公钥文件</strong>，无后缀为<strong>私钥文件</strong>。</p>
+<h3 id="关联SSH公钥到Github账户"><a href="#关联SSH公钥到Github账户" class="headerlink" title="关联SSH公钥到Github账户"></a>关联SSH公钥到Github账户</h3><p>点击Github右上角头像<br><br><font color="#0099ff">Settings</font> -&gt; <font color="#0099ff">SSH and GPG keys</font> -&gt; <font color="#0099ff">New SSH key</font> -&gt;Title任意填写，复制公钥文件的内容至Key -&gt; <font color="#0099ff">Add SSH key</font><br><br><br><br><strong>验证连接</strong><br><br>打开Git Bash</p>
+<pre><code>$ ssh -T git@github.com</code></pre><p>出现”Are you sure…”,输入yes,回车<br><br>显示 “Hi xxx! You’ve successfully……” 即连接成功。</p>
 <h3 id="配置用户名与邮箱"><a href="#配置用户名与邮箱" class="headerlink" title="配置用户名与邮箱"></a>配置用户名与邮箱</h3><p>安装完Git工具以后</p>
 <pre><code>$ git config --global user.name &quot;你的用户名&quot;
 
 $ git config --global user.email &quot;你的邮箱&quot;</code></pre><h2 id="Github及Git工具的基本使用"><a href="#Github及Git工具的基本使用" class="headerlink" title="Github及Git工具的基本使用"></a>Github及Git工具的基本使用</h2><h3 id="克隆仓库到本地PC"><a href="#克隆仓库到本地PC" class="headerlink" title="克隆仓库到本地PC"></a>克隆仓库到本地PC</h3><p>找到你感兴趣的项目，获得仓库地址。<br>在Git Bash中键入以下命令：</p>
-<pre><code>$ git clone 仓库地址</code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre><code>$ git add &lt;文件名|路径&gt;</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>$ git rm &lt;文件名|路径&gt;</code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><pre><code>$ git reset</code></pre><h3 id="提交仓库的改动"><a href="#提交仓库的改动" class="headerlink" title="提交仓库的改动"></a>提交仓库的改动</h3><pre><code>$ git commit -m &quot;你的提交备注&quot;</code></pre><h3 id="推送改动到远程仓库"><a href="#推送改动到远程仓库" class="headerlink" title="推送改动到远程仓库"></a>推送改动到远程仓库</h3><pre><code>$ git push origin &lt;分支名&gt;</code></pre><p>使用<font color=#0099ff>-u</font>参数之后会绑定这一次的仓库分支名，下一次推送不需要加上分支名。eg:</p>
+<pre><code>$ git clone 仓库地址</code></pre><h3 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h3><pre><code>$ git add &lt;文件名|路径&gt;</code></pre><h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><pre><code>$ git rm &lt;文件名|路径&gt;</code></pre><h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><pre><code>$ git reset</code></pre><h3 id="提交仓库的改动"><a href="#提交仓库的改动" class="headerlink" title="提交仓库的改动"></a>提交仓库的改动</h3><pre><code>$ git commit -m &quot;你的提交备注&quot;</code></pre><h3 id="推送改动到远程仓库"><a href="#推送改动到远程仓库" class="headerlink" title="推送改动到远程仓库"></a>推送改动到远程仓库</h3><pre><code>$ git push origin &lt;分支名&gt;</code></pre><p>使用<font color="#0099ff">-u</font>参数之后会绑定这一次的仓库分支名，下一次推送不需要加上分支名。eg:</p>
 <pre><code>$ git push -u origin master</code></pre><h3 id="查看仓库改动"><a href="#查看仓库改动" class="headerlink" title="查看仓库改动"></a>查看仓库改动</h3><p>git fetch origin</p>
 <pre><code>$ git fetch</code></pre><h3 id="下拉仓库同步"><a href="#下拉仓库同步" class="headerlink" title="下拉仓库同步"></a>下拉仓库同步</h3><p>git pull origin &lt;分支名&gt;</p>
 <pre><code>$ git pull</code></pre>

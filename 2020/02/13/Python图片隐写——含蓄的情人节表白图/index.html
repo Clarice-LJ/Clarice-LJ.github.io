@@ -141,7 +141,7 @@
         <h1 id="喔今天是2-13啦，猜猜看明天是什么特殊的日子。"><a href="#喔今天是2-13啦，猜猜看明天是什么特殊的日子。" class="headerlink" title="喔今天是2.13啦，猜猜看明天是什么特殊的日子。"></a>喔今天是2.13啦，猜猜看明天是什么特殊的日子。</h1><a id="more"></a>
 <p>得了吧，我的标题已经给你答案了，看看我们能做点什么有趣的事情。</p>
 <h2 id="简短的Python代码完成图片隐写"><a href="#简短的Python代码完成图片隐写" class="headerlink" title="简短的Python代码完成图片隐写"></a>简短的Python代码完成图片隐写</h2><blockquote>
-<p>首先，来讲讲原理。<br><br /><br />事实上，每一张图片都是由一个一个的像素点所组成的。而每个像素点，都有自己的颜色，其颜色可以用一个数组来表示：(a,b,c)，其中每位数的取值范围都是 0-255。<br><br /><br />比如(0,0,0)代表白色，(255,255,255)代表黑色。当像素点足够多的时候，这张照片就是我们所说的高清照片。而如果当像素点太少，我们的肉眼就能感知到明显的锯齿感。<br><br /><br />我只要每个像素取出一个像素值，并使用这个像素做为该字的颜色即可，在像素量够多的情况下，从远处看，是能看到我们原来图像的轮廓的。<br><br /><br />有了思路，就可以开始我们的代码。</p>
+<p>首先，来讲讲原理。<br><br><br>事实上，每一张图片都是由一个一个的像素点所组成的。而每个像素点，都有自己的颜色，其颜色可以用一个数组来表示：(a,b,c)，其中每位数的取值范围都是 0-255。<br><br><br>比如(0,0,0)代表白色，(255,255,255)代表黑色。当像素点足够多的时候，这张照片就是我们所说的高清照片。而如果当像素点太少，我们的肉眼就能感知到明显的锯齿感。<br><br><br>我只要每个像素取出一个像素值，并使用这个像素做为该字的颜色即可，在像素量够多的情况下，从远处看，是能看到我们原来图像的轮廓的。<br><br><br>有了思路，就可以开始我们的代码。</p>
 </blockquote>
 <p>——摘自 微信公众号<strong>Python编程时光</strong></p>
 <pre><code>from PIL import Image, ImageDraw, ImageFont
@@ -172,19 +172,17 @@ img_new.convert(&apos;RGB&apos;).save(&quot;F://save.jpeg&quot;)</code></pre><h2
 <blockquote>
 <p>SyntaxError: (unicode error) ‘unicodeescape’ codec can’t decode bytes in position 2-3: truncated \UXXXXXXXX escape</p>
 </blockquote>
-<p>在<a href="https://www.cnblogs.com/rychh/p/9743864.html" target="_blank" rel="noopener">这里</a>找到了答案<br /><br>路径中的\符号被识别成了转义字符，无法找到正确的路径。<br /><br /><br>在字符串前加 <strong>r</strong> 即可声明字符串不用转义。如：</p>
+<p>在<a href="https://www.cnblogs.com/rychh/p/9743864.html" target="_blank" rel="noopener">这里</a>找到了答案<br><br>路径中的\符号被识别成了转义字符，无法找到正确的路径。<br><br><br>在字符串前加 <strong>r</strong> 即可声明字符串不用转义。如：</p>
 <pre><code>path = r&quot;C:\Windows\user\fonts\msyh_boot.ttf&quot;</code></pre><p>或用Linux的路径格式</p>
 <pre><code>path = &quot;C:/Windows/user/fonts/msyh_boot.ttf&quot;</code></pre><h3 id="PIL模块中的ImageDraw使用"><a href="#PIL模块中的ImageDraw使用" class="headerlink" title="PIL模块中的ImageDraw使用"></a>PIL模块中的ImageDraw使用</h3><p>第二次报错</p>
 <blockquote>
 <p>TypeError: ‘module’ object is not callable<br>原代码</p>
 </blockquote>
-<pre><code>draw = ImageDraw(img_new)</code></pre><p>ImageDraw的使用错误了。抄代码哪哪儿都爽，就是人家打错了我只能抓瞎。花了好长时间才找到这个问题。<br><br /><br />修改：</p>
-<pre><code>draw = ImageDraw.Draw(img_new)</code></pre><p><br /><br /><br /><br>目前效果极其不理想……<br /><br>原图</p>
-<!-- <br />![原图](images/图片1.jpg) -->
-<p><br /></p>
-<p><br /><br />成品(font-size = 7)<br /><br><img src="images/PictureSecretTest.jpg" alt="7号"><br><br />也许是<strong>喜欢</strong>两个字太难写，也许是爱实在说不出口……<br><br /><br /><br>这个丑陋的图片……我尝试着把font-size分别改成3<br /><br><img src="images/PictureSecretTest2.jpg" alt="3号"><br><br />和5<br /><br><img src="images/PictureSecretTest3.jpg" alt="5号"><br><br />显然越来越糟</p>
-<p><br /><br /><br>我一度以为换成简单的英文字母会好一点<br /><br><img src="images/PictureSecretTest7.jpg" alt="英文"></p>
-<p><br /><br /><br>这些问题留到情人节解决吧，好在我是一条狗，不着急把成品做出来。</p>
+<pre><code>draw = ImageDraw(img_new)</code></pre><p>ImageDraw的使用错误了。抄代码哪哪儿都爽，就是人家打错了我只能抓瞎。花了好长时间才找到这个问题。<br><br><br>修改：</p>
+<pre><code>draw = ImageDraw.Draw(img_new)</code></pre><p><br><br><br><br>目前效果极其不理想……<br><br>原图<br><br><img src="/source/images/%E5%9B%BE%E7%89%871.jpg" alt="图片1"></p>
+<p><br><br>成品(font-size = 7)<br><br><img src="/.com//PictureSecretTest.jpg" alt="PictureSecretTest"><br><br>也许是<strong>喜欢</strong>两个字太难写，也许是爱实在说不出口……<br><br><br><br>这个丑陋的图片……我尝试着把font-size分别改成3<br><br><img src="/.com//PictureSecretTest2.jpg" alt="3号"><br><br>和5<br><br><img src="/.com//PictureSecretTest3.jpg" alt="5号"><br><br>显然越来越糟</p>
+<p><br><br><br>我一度以为换成简单的英文字母会好一点<br><br><img src="/.com//PictureSecretTest7.jpg" alt="英文"></p>
+<p><br><br><br>这些问题留到情人节解决吧，好在我是一条狗，不着急把成品做出来。</p>
 
         
     </section>
