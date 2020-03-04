@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-02-21T14:28:10.572Z</updated>
+  <updated>2020-03-04T07:49:56.527Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,23 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开学第一发</title>
+    <link href="http://yoursite.com/2020/03/04/%E5%BC%80%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%8F%91/"/>
+    <id>http://yoursite.com/2020/03/04/%E5%BC%80%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%8F%91/</id>
+    <published>2020-03-04T02:40:35.000Z</published>
+    <updated>2020-03-04T07:49:56.527Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开学以后，我终日与腾讯课堂、Zoom为伍，抑郁温柔地向我的生命靠近，蓝光的照射使少女花容失色。于是我又回到了我的小窝。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>hexo中的博文插入图片</title>
@@ -63,7 +80,7 @@
     <link href="http://yoursite.com/2020/02/13/Python%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E2%80%94%E2%80%94%E5%90%AB%E8%93%84%E7%9A%84%E6%83%85%E4%BA%BA%E8%8A%82%E8%A1%A8%E7%99%BD%E5%9B%BE/"/>
     <id>http://yoursite.com/2020/02/13/Python%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E2%80%94%E2%80%94%E5%90%AB%E8%93%84%E7%9A%84%E6%83%85%E4%BA%BA%E8%8A%82%E8%A1%A8%E7%99%BD%E5%9B%BE/</id>
     <published>2020-02-13T12:56:26.000Z</published>
-    <updated>2020-02-21T13:08:35.897Z</updated>
+    <updated>2020-03-04T07:18:18.490Z</updated>
     
     <summary type="html">
     
