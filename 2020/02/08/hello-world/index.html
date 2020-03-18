@@ -155,6 +155,25 @@
 
 
 
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "e93e5b8dbabfc5290b48",
+        clientSecret: "651c23461a0fedcec5009191d4d2e5fc9c216fc2",
+        repo: "Clarice-LJ.github.io",
+        owner: "Clarice-LJ",
+        admin: ["Clarice-LJ"],
+        id: "2020/02/08/hello-world",
+        distractionFreeMode: true,
+        title: "Hello World",
+        body: "http://yoursite.com/2020/02/08/hello-world/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
 
             </div>
         </div>
