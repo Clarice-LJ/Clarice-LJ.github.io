@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-18T15:18:54.219Z</updated>
+  <updated>2020-03-26T11:56:44.232Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wechat QR Code</title>
+    <link href="http://yoursite.com/2020/03/26/Wechat-QR-Code/"/>
+    <id>http://yoursite.com/2020/03/26/Wechat-QR-Code/</id>
+    <published>2020-03-26T11:42:17.000Z</published>
+    <updated>2020-03-26T11:56:44.232Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;加微信请备注二维码来源。&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;img src=&quot;/2020/03/26/Wechat-QR-Code/WechatQRCode.jpg&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《人生的枷锁》</title>
@@ -250,7 +276,7 @@
     <link href="http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/"/>
     <id>http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/</id>
     <published>2020-02-12T09:49:03.000Z</published>
-    <updated>2020-03-18T15:01:15.704Z</updated>
+    <updated>2020-03-26T11:50:22.099Z</updated>
     
     <summary type="html">
     
@@ -262,7 +288,7 @@
       <category term="books" scheme="http://yoursite.com/categories/books/"/>
     
     
-      <category term="阿尔贝·加缪" scheme="http://yoursite.com/tags/%E9%98%BF%E5%B0%94%E8%B4%9D%C2%B7%E5%8A%A0%E7%BC%AA/"/>
+      <category term="加缪" scheme="http://yoursite.com/tags/%E5%8A%A0%E7%BC%AA/"/>
     
   </entry>
   
