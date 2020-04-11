@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>cutecharts包的探索 | Clarice&#39;s blog</title>
+    <meta name="author" content="Clarice" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="这真是一个充满少女心的包这也是第一次jupyter的探索条形图Bar1234567891011121314from cutecharts.charts import Bar, Line, Piebar = Bar(&#39;标题：LJJ的cutecharts包样例&#39;)bar.set_options(labels = [&#39;1月&#39;, &#39;2月&#39;, &#39;3月&#39;, &#39;4月&#39;, &#39;5月&#39;], \                x_label=&#39;month&#39;, y_label=&#39;幸福指数&#39;)bar.ad..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Clarice&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon3.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Clarice&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/daily">
+                <span class="nav-text">日常</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/books">
+                <span class="nav-text">读书</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+            <a class="nav-item" href="/game">
+                <span class="nav-text">小游戏</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#条形图Bar"><span class="toc-number">1.</span> <span class="toc-text">条形图Bar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#折线图Line"><span class="toc-number">2.</span> <span class="toc-text">折线图Line</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#饼图Pie"><span class="toc-number">3.</span> <span class="toc-text">饼图Pie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">3.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成html网页"><span class="toc-number">3.2.</span> <span class="toc-text">生成html网页</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            cutecharts包的探索
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-10T14:54:53.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>这真是一个充满少女心的包</p>
+<a id="more"></a>
+
+
+<p>这也是第一次jupyter的探索<br><br></p>
+<h2 id="条形图Bar"><a href="#条形图Bar" class="headerlink" title="条形图Bar"></a>条形图Bar</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cutecharts.charts <span class="keyword">import</span> Bar, Line, Pie</span><br><span class="line">bar = Bar(<span class="string">'标题：LJJ的cutecharts包样例'</span>)</span><br><span class="line">bar.set_options(labels = [<span class="string">'1月'</span>, <span class="string">'2月'</span>, <span class="string">'3月'</span>, <span class="string">'4月'</span>, <span class="string">'5月'</span>], \</span><br><span class="line">                x_label=<span class="string">'month'</span>, y_label=<span class="string">'幸福指数'</span>)</span><br><span class="line">bar.add_series(<span class="string">'LJJ幸福指数'</span>, data=[<span class="number">9.9</span>, <span class="number">7.1</span>, <span class="number">5.6</span>, <span class="number">5.5</span>, <span class="number">8.3</span>])</span><br><span class="line">bar.render_notebook()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">line = Line(<span class="string">'标题：2019年下半年LJJ的新路历程'</span>)</span><br><span class="line">line.set_options(labels = [<span class="string">'7月'</span>,<span class="string">'8月'</span>,<span class="string">'9月'</span>,<span class="string">'10月'</span>,<span class="string">'11月'</span>,<span class="string">'12月'</span>],\</span><br><span class="line">                x_label=<span class="string">'month'</span>, y_label=<span class="string">'情感指数'</span>)</span><br><span class="line">line.add_series(<span class="string">'LJJ情感指数'</span>, data = [<span class="number">3.1</span>, <span class="number">3.2</span>, <span class="number">6.6</span>, <span class="number">5.8</span>, <span class="number">4.5</span>, <span class="number">6.3</span>])</span><br><span class="line">line.render_notebook()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<script>
+    require.config({
+        paths: {
+            'chartXkcd':'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min'
+        }
+    });
+</script>
+
+<div id="c8b9a4e14d81484087e6e7db9102f62f" class="chart-container" style="width: 800px">
+        <svg id="chart_c8b9a4e14d81484087e6e7db9102f62f"/>
+    </div>
+    <script>
+        require(['chartXkcd'], function(chartXkcd) {
+            const svg_c8b9a4e14d81484087e6e7db9102f62f = document.querySelector('#chart_c8b9a4e14d81484087e6e7db9102f62f')
+            const chart_c8b9a4e14d81484087e6e7db9102f62f = new chartXkcd.Bar(svg_c8b9a4e14d81484087e6e7db9102f62f, {"title": "\u6807\u9898\uff1aLJJ\u7684cutecharts\u5305\u6837\u4f8b", "data": {"datasets": [{"label": "LJJ\u5e78\u798f\u6307\u6570", "data": [9.9, 7.1, 5.6, 5.5, 8.3]}], "labels": ["1\u6708", "2\u6708", "3\u6708", "4\u6708", "5\u6708"]}, "xLabel": "month", "yLabel": "\u5e78\u798f\u6307\u6570", "options": {"yTickCount": 3}});
+        })
+    </script>
+
+
+
+
+<h2 id="折线图Line"><a href="#折线图Line" class="headerlink" title="折线图Line"></a>折线图Line</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">line = Line(<span class="string">'标题：2019年下半年LJJ的情感指数'</span>)</span><br><span class="line">line.set_options(labels = [<span class="string">'7月'</span>,<span class="string">'8月'</span>,<span class="string">'9月'</span>,<span class="string">'10月'</span>,<span class="string">'11月'</span>,<span class="string">'12月'</span>],\</span><br><span class="line">                 x_label=<span class="string">'month'</span>,y_label=<span class="string">'情感指数'</span>)</span><br><span class="line">line.add_series(<span class="string">'LJJ情感指数'</span>,data = [<span class="number">3.3</span>, <span class="number">3.4</span>, <span class="number">6.9</span>, <span class="number">5.6</span>, <span class="number">5.4</span>, <span class="number">6.7</span>])</span><br><span class="line">line.render_notebook()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<script>
+    require.config({
+        paths: {
+            'chartXkcd':'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min'
+        }
+    });
+</script>
+
+<div id="5384d829b23d4f58b26689efba9c1151" class="chart-container" style="width: 800px">
+        <svg id="chart_5384d829b23d4f58b26689efba9c1151"/>
+    </div>
+    <script>
+        require(['chartXkcd'], function(chartXkcd) {
+            const svg_5384d829b23d4f58b26689efba9c1151 = document.querySelector('#chart_5384d829b23d4f58b26689efba9c1151')
+            const chart_5384d829b23d4f58b26689efba9c1151 = new chartXkcd.Line(svg_5384d829b23d4f58b26689efba9c1151, {"title": "\u6807\u9898\uff1a2019\u5e74\u4e0b\u534a\u5e74LJJ\u7684\u60c5\u611f\u6307\u6570", "data": {"datasets": [{"label": "LJJ\u60c5\u611f\u6307\u6570", "data": [3.3, 3.4, 6.9, 5.6, 5.4, 6.7]}], "labels": ["7\u6708", "8\u6708", "9\u6708", "10\u6708", "11\u6708", "12\u6708"]}, "xLabel": "month", "yLabel": "\u60c5\u611f\u6307\u6570", "options": {"yTickCount": 3, "legendPosition": 1}});
+        })
+    </script>
+
+
+
+
+<h2 id="饼图Pie"><a href="#饼图Pie" class="headerlink" title="饼图Pie"></a>饼图Pie</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pie = Pie(<span class="string">'标题：2019年下半年LJJ的情感蛋糕'</span>)</span><br><span class="line">pie.set_options(labels = [<span class="string">'7月'</span>,<span class="string">'8月'</span>,<span class="string">'9月'</span>,<span class="string">'10月'</span>,<span class="string">'11月'</span>,<span class="string">'12月'</span>])</span><br><span class="line">values = [<span class="number">1.5</span>,<span class="number">2.0</span>,<span class="number">1.8</span>,<span class="number">1.6</span>,<span class="number">3.5</span>,<span class="number">2.6</span>]</span><br><span class="line">pie.add_series(values)</span><br><span class="line">pie.render_notebook()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<script>
+    require.config({
+        paths: {
+            'chartXkcd':'https://cdn.jsdelivr.net/npm/chart.xkcd@1.1/dist/chart.xkcd.min'
+        }
+    });
+</script>
+
+<div id="14f2c0a3cd0a42c6b5072a910afc59bc" class="chart-container" style="width: 800px">
+        <svg id="chart_14f2c0a3cd0a42c6b5072a910afc59bc"/>
+    </div>
+    <script>
+        require(['chartXkcd'], function(chartXkcd) {
+            const svg_14f2c0a3cd0a42c6b5072a910afc59bc = document.querySelector('#chart_14f2c0a3cd0a42c6b5072a910afc59bc')
+            const chart_14f2c0a3cd0a42c6b5072a910afc59bc = new chartXkcd.Pie(svg_14f2c0a3cd0a42c6b5072a910afc59bc, {"title": "\u6807\u9898\uff1a2019\u5e74\u4e0b\u534a\u5e74LJJ\u7684\u60c5\u611f\u86cb\u7cd5", "data": {"datasets": [{"data": [1.5, 2.0, 1.8, 1.6, 3.5, 2.6]}], "labels": ["7\u6708", "8\u6708", "9\u6708", "10\u6708", "11\u6708", "12\u6708"]}, "options": {"innerRadius": 0.5, "legendPosition": 1}});
+        })
+    </script>
+
+
+
+
+<p><br><br><br>以及一些补充内容</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install cutecharts</span><br></pre></td></tr></table></figure>
+
+<h3 id="生成html网页"><a href="#生成html网页" class="headerlink" title="生成html网页"></a>生成html网页</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> cutecharts.components <span class="keyword">import</span> Page</span><br><span class="line"></span><br><span class="line">page = Page()</span><br><span class="line">page.add(bar,line,pie)</span><br><span class="line">page.render()</span><br></pre></td></tr></table></figure>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/03/26/Wechat-QR-Code/" class="article-next" title="Wechat QR Code"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "e93e5b8dbabfc5290b48",
+        clientSecret: "651c23461a0fedcec5009191d4d2e5fc9c216fc2",
+        repo: "Clarice-LJ.github.io",
+        owner: "Clarice-LJ",
+        admin: ["Clarice-LJ"],
+        id: "2020/04/10/cutecharts包的探索",
+        distractionFreeMode: true,
+        title: "cutecharts包的探索",
+        body: "http://yoursite.com/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
