@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-11T03:47:52.792Z</updated>
+  <updated>2020-04-11T04:53:16.522Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用nbviewer在hexo中添加jupyter notebook</title>
+    <link href="http://yoursite.com/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/"/>
+    <id>http://yoursite.com/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/</id>
+    <published>2020-04-11T04:20:51.000Z</published>
+    <updated>2020-04-11T04:53:16.522Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是一样易于引发联想的名字，nbviewer也的确很牛啤。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>cutecharts包的探索</title>

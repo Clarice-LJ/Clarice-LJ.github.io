@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>利用nbviewer在hexo中添加jupyter notebook | Clarice&#39;s blog</title>
+    <meta name="author" content="Clarice" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="这是一样易于引发联想的名字，nbviewer也的确很牛啤。上一篇博文写到关于cutecharts包的探索  (传送门)为了更简易更便捷地实现与GUI界面的交互，我开启了对jupyter的探索，无意间打开了新世界的大门。简直不是一般得好用呀。如果jupyter notebook可以直接放到博客里就太完美了，对于hexo这样的静态博客使用者而言，就省去了代码+截图的繁琐方式。Step1:在GitHub上传jupyter notebook文件以上一篇我用的关于cutecharts的ipyn..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Clarice&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon3.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Clarice&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/daily">
+                <span class="nav-text">日常</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/books">
+                <span class="nav-text">读书</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+            <a class="nav-item" href="/game">
+                <span class="nav-text">小游戏</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Step1-在GitHub上传jupyter-notebook文件"><span class="toc-number">1.</span> <span class="toc-text">Step1:在GitHub上传jupyter notebook文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step2-nbviwer"><span class="toc-number">2.</span> <span class="toc-text">Step2:nbviwer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Step3-插入博文"><span class="toc-number">3.</span> <span class="toc-text">Step3:插入博文</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            利用nbviewer在hexo中添加jupyter notebook
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-11T04:20:51.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>这是一样易于引发联想的名字，nbviewer也的确很牛啤。</p>
+<a id="more"></a>
+<p>上一篇博文写到关于cutecharts包的探索  (<a href="https://clarice-lj.github.io/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/" target="_blank" rel="noopener">传送门</a>)<br><br>为了更简易更便捷地实现与GUI界面的交互，我开启了对jupyter的探索，无意间打开了新世界的大门。简直不是一般得好用呀。<br><br>如果jupyter notebook可以直接放到博客里就太完美了，对于hexo这样的静态博客使用者而言，就省去了<strong>代码+截图</strong>的繁琐方式。</p>
+<h2 id="Step1-在GitHub上传jupyter-notebook文件"><a href="#Step1-在GitHub上传jupyter-notebook文件" class="headerlink" title="Step1:在GitHub上传jupyter notebook文件"></a>Step1:在GitHub上传jupyter notebook文件</h2><p>以上一篇我用的关于cutecharts的ipynb文件为例。<br><img src="/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/image1.png" alt="github"><br><br><br>在GitHub上打开得到它的URL<br><img src="/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/image2.png" alt="URL"></p>
+<h2 id="Step2-nbviwer"><a href="#Step2-nbviwer" class="headerlink" title="Step2:nbviwer"></a>Step2:nbviwer</h2><p><a href="https://nbviewer.jupyter.org/" target="_blank" rel="noopener">nbviewer</a><br><br>进入nbviewer输入刚刚的URL，然后<strong>Go！</strong><br><br>可以看到自己的ipynb文件，这个新的网页的url就是我们最终的需要！</p>
+<h2 id="Step3-插入博文"><a href="#Step3-插入博文" class="headerlink" title="Step3:插入博文"></a>Step3:插入博文</h2><p>在自己的md博文中输入以下代码</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">"your_URL"</span> <span class="attr">width</span>=<span class="string">"600"</span> <span class="attr">height</span>=<span class="string">"400"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>自己调整尺寸即可</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/" class="article-next" title="cutecharts包的探索"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "e93e5b8dbabfc5290b48",
+        clientSecret: "651c23461a0fedcec5009191d4d2e5fc9c216fc2",
+        repo: "Clarice-LJ.github.io",
+        owner: "Clarice-LJ",
+        admin: ["Clarice-LJ"],
+        id: "2020/04/11/利用nbviewer在hexo中添加jupyter-notebook",
+        distractionFreeMode: true,
+        title: "利用nbviewer在hexo中添加jupyter notebook",
+        body: "http://yoursite.com/2020/04/11/%E5%88%A9%E7%94%A8nbviewer%E5%9C%A8hexo%E4%B8%AD%E6%B7%BB%E5%8A%A0jupyter-notebook/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?e4027971a230b210f4671f485b33846a";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
