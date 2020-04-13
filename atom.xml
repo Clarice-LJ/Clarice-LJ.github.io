@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-11T05:10:48.290Z</updated>
+  <updated>2020-04-13T16:56:58.377Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>书短意长</title>
+    <link href="http://yoursite.com/2020/04/13/%E4%B9%A6%E7%9F%AD%E6%84%8F%E9%95%BF/"/>
+    <id>http://yoursite.com/2020/04/13/%E4%B9%A6%E7%9F%AD%E6%84%8F%E9%95%BF/</id>
+    <published>2020-04-13T15:39:32.000Z</published>
+    <updated>2020-04-13T16:56:58.377Z</updated>
+    
+    <summary type="html">
+    
+      本人亲启
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《不朽》</title>
