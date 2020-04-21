@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-21T03:04:02.217Z</updated>
+  <updated>2020-04-21T03:13:19.006Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《我们一无所有》</title>
+    <link href="http://yoursite.com/2020/04/21/%E3%80%8A%E6%88%91%E4%BB%AC%E4%B8%80%E6%97%A0%E6%89%80%E6%9C%89%E3%80%8B/"/>
+    <id>http://yoursite.com/2020/04/21/%E3%80%8A%E6%88%91%E4%BB%AC%E4%B8%80%E6%97%A0%E6%89%80%E6%9C%89%E3%80%8B/</id>
+    <published>2020-04-21T03:08:57.000Z</published>
+    <updated>2020-04-21T03:13:19.006Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;——安东尼·马拉&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>《堂吉诃德》</title>
+    <link href="http://yoursite.com/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/"/>
+    <id>http://yoursite.com/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/</id>
+    <published>2020-04-21T03:08:18.000Z</published>
+    <updated>2020-04-21T03:12:50.222Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;——&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+      <category term="塞万提斯" scheme="http://yoursite.com/tags/%E5%A1%9E%E4%B8%87%E6%8F%90%E6%96%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>《苦难辉煌》</title>
@@ -381,42 +421,6 @@
     
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《快乐的死》</title>
-    <link href="http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/"/>
-    <id>http://yoursite.com/2020/02/12/%E3%80%8A%E5%BF%AB%E4%B9%90%E7%9A%84%E6%AD%BB%E3%80%8B/</id>
-    <published>2020-02-12T09:49:03.000Z</published>
-    <updated>2020-03-26T11:50:22.099Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;加缪的处女作《快乐的死》&quot;&gt;&lt;a href=&quot;#加缪的处女作《快乐的死》&quot; class=&quot;headerlink&quot; title=&quot;加缪的处女作《快乐的死》&quot;&gt;&lt;/a&gt;加缪的处女作《快乐的死》&lt;/h3&gt;
-    
-    </summary>
-    
-    
-      <category term="books" scheme="http://yoursite.com/categories/books/"/>
-    
-    
-      <category term="加缪" scheme="http://yoursite.com/tags/%E5%8A%A0%E7%BC%AA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>categories</title>
-    <link href="http://yoursite.com/2020/02/09/categories/index/"/>
-    <id>http://yoursite.com/2020/02/09/categories/index/</id>
-    <published>2020-02-09T08:49:28.429Z</published>
-    <updated>2020-02-12T05:22:37.104Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
     
   </entry>
   
