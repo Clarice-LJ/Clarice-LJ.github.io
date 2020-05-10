@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-21T03:13:19.006Z</updated>
+  <updated>2020-05-10T04:12:03.192Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>又见胡汉三之Arduino</title>
+    <link href="http://yoursite.com/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/"/>
+    <id>http://yoursite.com/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/</id>
+    <published>2020-05-10T03:53:31.000Z</published>
+    <updated>2020-05-10T04:12:03.192Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虽然以前没学多少，但是捡回来还是需要一点时间的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
+    
+  </entry>
   
   <entry>
     <title>《我们一无所有》</title>
@@ -400,27 +421,6 @@
     
     
       <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>实验楼百楼挑战</title>
-    <link href="http://yoursite.com/2020/02/13/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E7%99%BE%E6%A5%BC%E6%8C%91%E6%88%98/"/>
-    <id>http://yoursite.com/2020/02/13/%E5%AE%9E%E9%AA%8C%E6%A5%BC%E7%99%BE%E6%A5%BC%E6%8C%91%E6%88%98/</id>
-    <published>2020-02-13T04:51:22.000Z</published>
-    <updated>2020-04-12T16:10:13.592Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;实验楼百楼挑战&quot;&gt;&lt;a href=&quot;#实验楼百楼挑战&quot; class=&quot;headerlink&quot; title=&quot;实验楼百楼挑战&quot;&gt;&lt;/a&gt;实验楼百楼挑战&lt;/h1&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
-    
-      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
     
   </entry>
   
