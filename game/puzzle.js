@@ -1,3 +1,6 @@
+// resp.setDateHeader("Expires", 0);//设置过期头
+// resp.setHeader("Cache-Control", "no-cache");//所有内容都不会被缓存
+
 var time=0;
 //保存定时时间
 var pause=true;
