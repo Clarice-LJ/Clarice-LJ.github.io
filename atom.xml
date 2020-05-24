@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-18T02:30:48.348Z</updated>
+  <updated>2020-05-24T03:38:52.832Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《面纱》</title>
+    <link href="http://yoursite.com/2020/05/24/%E3%80%8A%E9%9D%A2%E7%BA%B1%E3%80%8B/"/>
+    <id>http://yoursite.com/2020/05/24/%E3%80%8A%E9%9D%A2%E7%BA%B1%E3%80%8B/</id>
+    <published>2020-05-24T03:25:45.000Z</published>
+    <updated>2020-05-24T03:38:52.832Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;——威廉· 萨默赛特·毛姆&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+      <category term="毛姆" scheme="http://yoursite.com/tags/%E6%AF%9B%E5%A7%86/"/>
+    
+  </entry>
   
   <entry>
     <title>《生命不能承受之轻》</title>
@@ -400,27 +421,6 @@
     
     
       <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github快速上手</title>
-    <link href="http://yoursite.com/2020/02/13/Github%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/"/>
-    <id>http://yoursite.com/2020/02/13/Github%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/</id>
-    <published>2020-02-13T06:51:00.000Z</published>
-    <updated>2020-03-05T05:08:37.463Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文内容为Github&lt;strong&gt;基础&lt;/strong&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
-    
-      <category term="Github" scheme="http://yoursite.com/tags/Github/"/>
     
   </entry>
   
