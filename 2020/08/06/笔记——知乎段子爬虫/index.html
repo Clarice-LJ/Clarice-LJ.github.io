@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <!-- <script>
+        (function(){
+            if('{{ page.password }}'){
+                if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                    alert('密码错误');
+                    history.back();
+                }
+            }
+        })();
+    </script> -->
+
+    
+
+    
+
+    <title>笔记——知乎段子爬虫 | Clarice&#39;s blog</title>
+    <meta name="author" content="Clarice" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="Requests设置请求头headers作用：在禁止爬取的网站中，通过反爬机制解决。设置headers信息，模拟成浏览器从而实现访问网站。获取headers: 右键–&amp;gt;检查–&amp;gt;Network-&amp;gt;Doc-&amp;gt;html文件    需要按Fn+F5刷新出网页来最常用的是user-agent和host即按照图中显示操作Posting Data参考Content-Type in Headers:Form Data:1234POSTContent-Type: applicat..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Clarice&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon3.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Clarice&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/daily">
+                <span class="nav-text">日常</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/books">
+                <span class="nav-text">读书</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Requests"><span class="toc-number">1.</span> <span class="toc-text">Requests</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置请求头headers"><span class="toc-number">1.1.</span> <span class="toc-text">设置请求头headers</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Posting-Data"><span class="toc-number">1.2.</span> <span class="toc-text">Posting Data</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Form-Data"><span class="toc-number">1.2.1.</span> <span class="toc-text">Form Data</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JSON-Payload"><span class="toc-number">1.2.2.</span> <span class="toc-text">JSON Payload</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Session"><span class="toc-number">1.3.</span> <span class="toc-text">Session</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件读写"><span class="toc-number">2.</span> <span class="toc-text">文件读写</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#read"><span class="toc-number">2.1.</span> <span class="toc-text">read</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#write"><span class="toc-number">2.2.</span> <span class="toc-text">write</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+
+</header>
+<!-- <script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script> -->
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            笔记——知乎段子爬虫
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-08-06T07:43:06.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/python/" rel="tag">python</a>, <a class="article-tag-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><h3 id="设置请求头headers"><a href="#设置请求头headers" class="headerlink" title="设置请求头headers"></a>设置请求头headers</h3><p>作用：在禁止爬取的网站中，通过反爬机制解决。设置headers信息，模拟成浏览器从而实现访问网站。<br>获取headers: 右键–&gt;检查–&gt;Network-&gt;Doc-&gt;html文件<br>    需要按Fn+F5刷新出网页来<br>最常用的是user-agent和host<br>即按照图中显示操作<br><img src="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/%E8%8E%B7%E5%8F%96headers.jpg" alt="获取headers"></p>
+<h3 id="Posting-Data"><a href="#Posting-Data" class="headerlink" title="Posting Data"></a>Posting Data</h3><p><a href="https://kishstats.com/python/2019/03/01/python-requests-posting-data.html" target="_blank" rel="noopener">参考</a><br><strong>Content-Type</strong> in <strong>Headers</strong>:<br>Form Data:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">user=me@example.com</span><br></pre></td></tr></table></figure>
+
+<p>JSON Payload</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/json</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">"user"</span>:<span class="string">"me@example.com"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Form-Data"><a href="#Form-Data" class="headerlink" title="Form Data"></a>Form Data</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line">print(response)  <span class="comment"># &lt;Response [200]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Notice that our response variable is a Response object. To be able to use this data, we need to apply a method or a property.</p>
+<p>Text property - String</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = response.text</span><br><span class="line">print(type(result))  <span class="comment"># &lt;class 'str'&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="JSON-Payload"><a href="#JSON-Payload" class="headerlink" title="JSON Payload"></a>JSON Payload</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># as payload</span></span><br><span class="line">response = requests.post(url, data=json.dumps(data))</span><br><span class="line"></span><br><span class="line">result = response.json()</span><br><span class="line">pprint(result)</span><br></pre></td></tr></table></figure>
+<p>By using the json.dumps method, we can convert the dictionary into a JSON-formatted string to post as a payload.<br>We used <strong>pprint</strong> to pretty-print our dictionary data.</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>用于维持会话，跨请求时保持某些参数</p>
+<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p><a href="https://www.cnblogs.com/ymjyqsx/p/6554817.html" target="_blank" rel="noopener">参考</a></p>
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read()</span><br><span class="line"><span class="string">'Hello world!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.close()</span><br></pre></td></tr></table></figure>
+<p>python读到的内容转成str对象。<br>文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限。如果文件不存在，open()函数就会抛出一个IOError的错误,终止运行，不再调用f.close(),利用<strong>with语句</strong>解决这个问题。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read())</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
+<p>此外，调用read()会一次性读取文件的全部内容，如果文件过大，内存就爆了。保险起见，可以反复调用read(size)方法，每次最多读取size个字节的内容。</p>
+<h3 id="write"><a href="#write" class="headerlink" title="write"></a>write</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'Hello, world!'</span>)</span><br></pre></td></tr></table></figure>
+<p>传入标识符<strong>w</strong>或者<strong>wb</strong>表示写<strong>文本文件</strong>或写<strong>二进制文件</strong></p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/08/02/%E3%80%8A%E5%88%80%E9%94%8B%E3%80%8B/" class="article-next" title="《刀锋》"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "e93e5b8dbabfc5290b48",
+        clientSecret: "651c23461a0fedcec5009191d4d2e5fc9c216fc2",
+        repo: "Clarice-LJ.github.io",
+        owner: "Clarice-LJ",
+        admin: ["Clarice-LJ"],
+        id: "2020/08/06/笔记——知乎段子爬虫",
+        distractionFreeMode: true,
+        title: "笔记——知乎段子爬虫",
+        body: "http://yoursite.com/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/",
+        labels: ["python","爬虫"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5b82f99f4652ea9887293bb610a5af47";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-03T15:06:41.736Z</updated>
+  <updated>2020-08-06T09:57:47.358Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>笔记——知乎段子爬虫</title>
+    <link href="http://yoursite.com/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/"/>
+    <id>http://yoursite.com/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/</id>
+    <published>2020-08-06T07:43:06.000Z</published>
+    <updated>2020-08-06T09:57:47.358Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Requests&quot;&gt;&lt;a href=&quot;#Requests&quot; class=&quot;headerlink&quot; title=&quot;Requests&quot;&gt;&lt;/a&gt;Requests&lt;/h2&gt;&lt;h3 id=&quot;设置请求头headers&quot;&gt;&lt;a href=&quot;#设置请求头headers&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="爬虫" scheme="http://yoursite.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>《刀锋》</title>
@@ -398,25 +427,6 @@
     
     
       <category term="毛姆" scheme="http://yoursite.com/tags/%E6%AF%9B%E5%A7%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>开学第一发</title>
-    <link href="http://yoursite.com/2020/03/04/%E5%BC%80%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%8F%91/"/>
-    <id>http://yoursite.com/2020/03/04/%E5%BC%80%E5%AD%A6%E7%AC%AC%E4%B8%80%E5%8F%91/</id>
-    <published>2020-03-04T02:40:35.000Z</published>
-    <updated>2020-03-05T05:03:03.818Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;开学以后，我终日与腾讯课堂、Zoom为伍，抑郁温柔地向我的生命靠近，蓝光的照射使少女花容失色。于是我又回到了我的小窝。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
     
   </entry>
   

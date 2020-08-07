@@ -1506,6 +1506,62 @@ MDg6MDBd0y/HAAAAAElFTkSuQmCC" />
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/">笔记——知乎段子爬虫</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/categories/daily/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-08-06T07:43:06.000Z" itemprop="datePublished">2020-08-06</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/python/" rel="tag">python</a>, <a class="article-tag-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><h3 id="设置请求头headers"><a href="#设置请求头headers" class="headerlink" title="设置请求头headers"></a>设置请求头headers</h3><p>作用：在禁止爬取的网站中，通过反爬机制解决。设置headers信息，模拟成浏览器从而实现访问网站。<br>获取headers: 右键–&gt;检查–&gt;Network-&gt;Doc-&gt;html文件<br>    需要按Fn+F5刷新出网页来<br>最常用的是user-agent和host<br>即按照图中显示操作<br><img src="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/%E8%8E%B7%E5%8F%96headers.jpg" alt="获取headers"></p>
+<h3 id="Posting-Data"><a href="#Posting-Data" class="headerlink" title="Posting Data"></a>Posting Data</h3><p><a href="https://kishstats.com/python/2019/03/01/python-requests-posting-data.html" target="_blank" rel="noopener">参考</a><br><strong>Content-Type</strong> in <strong>Headers</strong>:<br>Form Data:</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">user=me@example.com</span><br></pre></td></tr></table></figure>
+
+<p>JSON Payload</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/json</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">"user"</span>:<span class="string">"me@example.com"</span>&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Form-Data"><a href="#Form-Data" class="headerlink" title="Form Data"></a>Form Data</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line">print(response)  <span class="comment"># &lt;Response [200]&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Notice that our response variable is a Response object. To be able to use this data, we need to apply a method or a property.</p>
+<p>Text property - String</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = response.text</span><br><span class="line">print(type(result))  <span class="comment"># &lt;class 'str'&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="JSON-Payload"><a href="#JSON-Payload" class="headerlink" title="JSON Payload"></a>JSON Payload</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># as payload</span></span><br><span class="line">response = requests.post(url, data=json.dumps(data))</span><br><span class="line"></span><br><span class="line">result = response.json()</span><br><span class="line">pprint(result)</span><br></pre></td></tr></table></figure>
+<p>By using the json.dumps method, we can convert the dictionary into a JSON-formatted string to post as a payload.<br>We used <strong>pprint</strong> to pretty-print our dictionary data.</p>
+<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>用于维持会话，跨请求时保持某些参数</p>
+<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p><a href="https://www.cnblogs.com/ymjyqsx/p/6554817.html" target="_blank" rel="noopener">参考</a></p>
+<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read()</span><br><span class="line"><span class="string">'Hello world!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.close()</span><br></pre></td></tr></table></figure>
+<p>python读到的内容转成str对象。<br>文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限。如果文件不存在，open()函数就会抛出一个IOError的错误,终止运行，不再调用f.close(),利用<strong>with语句</strong>解决这个问题。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read())</span><br></pre></td></tr></table></figure>
+<p>等价于</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
+<p>此外，调用read()会一次性读取文件的全部内容，如果文件过大，内存就爆了。保险起见，可以反复调用read(size)方法，每次最多读取size个字节的内容。</p>
+<h3 id="write"><a href="#write" class="headerlink" title="write"></a>write</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'Hello, world!'</span>)</span><br></pre></td></tr></table></figure>
+<p>传入标识符<strong>w</strong>或者<strong>wb</strong>表示写<strong>文本文件</strong>或写<strong>二进制文件</strong></p>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2020/08/02/%E3%80%8A%E5%88%80%E9%94%8B%E3%80%8B/">《刀锋》</a>
         </h1>
         
@@ -1854,48 +1910,6 @@ MDg6MDBd0y/HAAAAAElFTkSuQmCC" />
         
         <p class="article-more-link">
             <a href="/2020/02/21/hexo%E4%B8%AD%E7%9A%84%E5%8D%9A%E6%96%87%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/02/15/%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/">简单的前端网页游戏制作</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/categories/daily/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-02-15T13:00:22.000Z" itemprop="datePublished">2020-02-15</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/CSS/" rel="tag">CSS</a>, <a class="article-tag-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link" href="/tags/html/" rel="tag">html</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>具体制作过程晚点再更，先上成品。</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/02/15/%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E7%BD%91%E9%A1%B5%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C/#more">
                 <span class="vm">阅读更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>

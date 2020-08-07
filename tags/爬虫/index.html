@@ -17,7 +17,7 @@
 
     
 
-    <title>Clarice&#39;s blog</title>
+    <title>Tag: 爬虫 | Clarice&#39;s blog</title>
     <meta name="author" content="Clarice" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -69,7 +69,7 @@
 
     <nav id="nav-inner" class="nav-inner">
         
-            <a class="nav-item active" href="/">
+            <a class="nav-item" href="/">
                 <span class="nav-text">首页</span>
             </a>
         
@@ -1501,435 +1501,51 @@ MDg6MDBd0y/HAAAAAElFTkSuQmCC" />
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
                 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/">笔记——知乎段子爬虫</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-08-06T07:43:06.000Z" itemprop="datePublished">2020-08-06</time>
-</a>
 
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/python/" rel="tag">python</a>, <a class="article-tag-link" href="/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a>
+
+<div class="page-hd">
+    爬虫
+    <small>(1)</small>
 </div>
 
 
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="Requests"><a href="#Requests" class="headerlink" title="Requests"></a>Requests</h2><h3 id="设置请求头headers"><a href="#设置请求头headers" class="headerlink" title="设置请求头headers"></a>设置请求头headers</h3><p>作用：在禁止爬取的网站中，通过反爬机制解决。设置headers信息，模拟成浏览器从而实现访问网站。<br>获取headers: 右键–&gt;检查–&gt;Network-&gt;Doc-&gt;html文件<br>    需要按Fn+F5刷新出网页来<br>最常用的是user-agent和host<br>即按照图中显示操作<br><img src="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/%E8%8E%B7%E5%8F%96headers.jpg" alt="获取headers"></p>
-<h3 id="Posting-Data"><a href="#Posting-Data" class="headerlink" title="Posting Data"></a>Posting Data</h3><p><a href="https://kishstats.com/python/2019/03/01/python-requests-posting-data.html" target="_blank" rel="noopener">参考</a><br><strong>Content-Type</strong> in <strong>Headers</strong>:<br>Form Data:</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/x-www-form-urlencoded</span><br><span class="line"></span><br><span class="line">user=me@example.com</span><br></pre></td></tr></table></figure>
 
-<p>JSON Payload</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">POST</span><br><span class="line">Content-Type: application/json</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">"user"</span>:<span class="string">"me@example.com"</span>&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="Form-Data"><a href="#Form-Data" class="headerlink" title="Form Data"></a>Form Data</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line">response = requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line">print(response)  <span class="comment"># &lt;Response [200]&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Notice that our response variable is a Response object. To be able to use this data, we need to apply a method or a property.</p>
-<p>Text property - String</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = response.text</span><br><span class="line">print(type(result))  <span class="comment"># &lt;class 'str'&gt;</span></span><br></pre></td></tr></table></figure>
-<h4 id="JSON-Payload"><a href="#JSON-Payload" class="headerlink" title="JSON Payload"></a>JSON Payload</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"></span><br><span class="line">url = <span class="string">'https://httpbin.org/post'</span></span><br><span class="line">data = &#123;<span class="string">'user'</span>:<span class="string">'me@example.com'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># as payload</span></span><br><span class="line">response = requests.post(url, data=json.dumps(data))</span><br><span class="line"></span><br><span class="line">result = response.json()</span><br><span class="line">pprint(result)</span><br></pre></td></tr></table></figure>
-<p>By using the json.dumps method, we can convert the dictionary into a JSON-formatted string to post as a payload.<br>We used <strong>pprint</strong> to pretty-print our dictionary data.</p>
-<h3 id="Session"><a href="#Session" class="headerlink" title="Session"></a>Session</h3><p>用于维持会话，跨请求时保持某些参数</p>
-<h2 id="文件读写"><a href="#文件读写" class="headerlink" title="文件读写"></a>文件读写</h2><p><a href="https://www.cnblogs.com/ymjyqsx/p/6554817.html" target="_blank" rel="noopener">参考</a></p>
-<h3 id="read"><a href="#read" class="headerlink" title="read"></a>read</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>f = open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'r'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.read()</span><br><span class="line"><span class="string">'Hello world!'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>f.close()</span><br></pre></td></tr></table></figure>
-<p>python读到的内容转成str对象。<br>文件使用完毕后必须关闭，因为文件对象会占用操作系统的资源，并且操作系统同一时间能打开的文件数量也是有限。如果文件不存在，open()函数就会抛出一个IOError的错误,终止运行，不再调用f.close(),利用<strong>with语句</strong>解决这个问题。</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    print(f.read())</span><br></pre></td></tr></table></figure>
-<p>等价于</p>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    f = open(<span class="string">'/path/to/file'</span>, <span class="string">'r'</span>)</span><br><span class="line">    print(f.read())</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    <span class="keyword">if</span> f:</span><br><span class="line">        f.close()</span><br></pre></td></tr></table></figure>
-<p>此外，调用read()会一次性读取文件的全部内容，如果文件过大，内存就爆了。保险起见，可以反复调用read(size)方法，每次最多读取size个字节的内容。</p>
-<h3 id="write"><a href="#write" class="headerlink" title="write"></a>write</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">'/Users/michael/test.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(<span class="string">'Hello, world!'</span>)</span><br></pre></td></tr></table></figure>
-<p>传入标识符<strong>w</strong>或者<strong>wb</strong>表示写<strong>文本文件</strong>或写<strong>二进制文件</strong></p>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
     
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/08/02/%E3%80%8A%E5%88%80%E9%94%8B%E3%80%8B/">《刀锋》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
     
-    <i class="icon-calendar"></i>
     
-    <time datetime="2020-08-01T16:20:23.000Z" itemprop="datePublished">2020-08-02</time>
+    
+    
+    <section class="archives-wrap">
+    <div class="archive-year-wrap">
+    <a href="/archives/2020" class="page-hd">
+        2020
+    </a>
+    </div>
+    <ol class="archives">
+    
+
+    <li class="archive-section-item">
+        
+<article class="archive-article archive-type-post">
+    <div class="archive-article-inner">
+        <header class="archive-article-header">
+            <a class="archive-article-link" href="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/">笔记——知乎段子爬虫</a>
+            <span class="archive-article-date">
+                (<a class="article-date" href="/archives/2020/08">
+    
+    <time datetime="2020-08-06T07:43:06.000Z" itemprop="datePublished">8/6</time>
 </a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%AF%9B%E5%A7%86/" rel="tag">毛姆</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——毛姆</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/08/02/%E3%80%8A%E5%88%80%E9%94%8B%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
+)
+            </span>
+        </header>
+    </div>
 </article>
+    </li>
 
 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/07/07/%E4%BB%A5%E5%AE%9E%E6%97%B6%E6%9B%B4%E6%96%B0%E5%A3%81%E7%BA%B8%E4%B8%BA%E6%8E%A9%E6%8A%A4%E7%9A%84%E7%94%B5%E8%84%91%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7/">以实时更新壁纸为掩护的电脑监控工具</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-07-07T15:08:50.000Z" itemprop="datePublished">2020-07-07</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Python/" rel="tag">Python</a>
-</div>
+</ol></section>
 
 
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>一学期就混过去了，期末折腾了这个东西，比较水。挺好玩的就分享一下。</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/07/07/%E4%BB%A5%E5%AE%9E%E6%97%B6%E6%9B%B4%E6%96%B0%E5%A3%81%E7%BA%B8%E4%B8%BA%E6%8E%A9%E6%8A%A4%E7%9A%84%E7%94%B5%E8%84%91%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/07/02/%E3%80%8A%E7%BA%A2%E4%B8%8E%E9%BB%91%E3%80%8B/">《红与黑》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-07-02T10:40:14.000Z" itemprop="datePublished">2020-07-02</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E5%8F%B8%E6%B1%A4%E8%BE%BE/" rel="tag">司汤达</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——司汤达</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/07/02/%E3%80%8A%E7%BA%A2%E4%B8%8E%E9%BB%91%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/06/04/%E3%80%8A%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1%E3%80%8B/">《你当像鸟飞往你的山》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-06-04T15:48:52.000Z" itemprop="datePublished">2020-06-04</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>———塔拉·韦斯特弗</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/06/04/%E3%80%8A%E4%BD%A0%E5%BD%93%E5%83%8F%E9%B8%9F%E9%A3%9E%E5%BE%80%E4%BD%A0%E7%9A%84%E5%B1%B1%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/05/24/%E3%80%8A%E9%9D%A2%E7%BA%B1%E3%80%8B/">《面纱》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-05-24T03:25:45.000Z" itemprop="datePublished">2020-05-24</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%AF%9B%E5%A7%86/" rel="tag">毛姆</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——威廉· 萨默赛特·毛姆</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/05/24/%E3%80%8A%E9%9D%A2%E7%BA%B1%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/05/11/%E3%80%8A%E7%94%9F%E5%91%BD%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E4%B9%8B%E8%BD%BB%E3%80%8B/">《生命不能承受之轻》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-05-11T11:34:15.000Z" itemprop="datePublished">2020-05-11</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E6%98%86%E5%BE%B7%E6%8B%89/" rel="tag">昆德拉</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——米兰·昆德拉</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/05/11/%E3%80%8A%E7%94%9F%E5%91%BD%E4%B8%8D%E8%83%BD%E6%89%BF%E5%8F%97%E4%B9%8B%E8%BD%BB%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/">又见胡汉三之Arduino</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-05-10T03:53:31.000Z" itemprop="datePublished">2020-05-10</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Arduino/" rel="tag">Arduino</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>虽然以前没学多少，但是捡回来还是需要一点时间的。</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/21/%E3%80%8A%E6%88%91%E4%BB%AC%E4%B8%80%E6%97%A0%E6%89%80%E6%9C%89%E3%80%8B/">《我们一无所有》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-21T03:08:57.000Z" itemprop="datePublished">2020-04-21</time>
-</a>
-
-            
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——安东尼·马拉</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/21/%E3%80%8A%E6%88%91%E4%BB%AC%E4%B8%80%E6%97%A0%E6%89%80%E6%9C%89%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/">《堂吉诃德》</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-21T03:08:18.000Z" itemprop="datePublished">2020-04-21</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/%E5%A1%9E%E4%B8%87%E6%8F%90%E6%96%AF/" rel="tag">塞万提斯</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>——米盖尔·德·塞万提斯</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/#more">
-                <span class="vm">阅读更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-
-
-<nav class="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-</nav>
 
 
 
