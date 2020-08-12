@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <!-- <script>
+        (function(){
+            if('{{ page.password }}'){
+                if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                    alert('密码错误');
+                    history.back();
+                }
+            }
+        })();
+    </script> -->
+
+    
+
+    
+
+    <title>Python转移Excel表格内容至Word | Clarice&#39;s blog</title>
+    <meta name="author" content="Clarice" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="暑假在检测公司实习，整理幕墙安全检查的文件常常有一些复制粘贴的无脑操作，于是捣鼓了一下xlrd包(xlsx文件读取)和docx包(docx文件的写入)的一些基本操作，做个小记录。正则表达式总结12345678910111213# 总结# ^ 匹配字符串的开始。# $ 匹配字符串的结尾。# \b 匹配一个单词的边界。# \d 匹配任意数字。# \D 匹配任意非数字字符。# x? 匹配一个可选的 x 字符 (换言之，它匹配 1 次或者 0 次 x 字符)。# x* 匹配0次或者多次 x 字..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Clarice&#39;s blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon3.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Clarice&#39;s blog</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/daily">
+                <span class="nav-text">日常</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/books">
+                <span class="nav-text">读书</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">关于</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式总结"><span class="toc-number">1.</span> <span class="toc-text">正则表达式总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串前的-quot-b-quot-quot-u-quot-quot-r-quot-quot-f-quot"><span class="toc-number">2.</span> <span class="toc-text">字符串前的&quot;b&quot; &quot;u&quot; &quot;r&quot; &quot;f&quot;
+</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Excel版本转化——xls-2-xlsx"><span class="toc-number">3.</span> <span class="toc-text">Excel版本转化——xls 2 xlsx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Word版本转化——doc-2-docx"><span class="toc-number">4.</span> <span class="toc-text">Word版本转化——doc 2 docx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#读取xlsx文件中指定单元格的数据"><span class="toc-number">5.</span> <span class="toc-text">读取xlsx文件中指定单元格的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更改docx文件的表格中的数值"><span class="toc-number">6.</span> <span class="toc-text">更改docx文件的表格中的数值</span></a></li></ol>
+        
+    </div>
+</aside>
+
+
+</header>
+<!-- <script>
+    (function(){
+        if('{{ page.password }}'){
+            if (prompt('请输入文章密码') !== '{{ page.password }}'){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script> -->
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Python转移Excel表格内容至Word
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/2020/08/10/Python%E8%BD%AC%E7%A7%BBExcel%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9%E8%87%B3Word/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-08-10T01:58:48.000Z" itemprop="datePublished">2020-08-10</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/python/" rel="tag">python</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>暑假在检测公司实习，整理幕墙安全检查的文件常常有一些复制粘贴的无脑操作，于是捣鼓了一下xlrd包(xlsx文件读取)和docx包(docx文件的写入)的一些基本操作，做个小记录。</p>
+<a id="more"></a>
+<h3 id="正则表达式总结"><a href="#正则表达式总结" class="headerlink" title="正则表达式总结"></a>正则表达式总结</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 总结</span></span><br><span class="line"><span class="comment"># ^ 匹配字符串的开始。</span></span><br><span class="line"><span class="comment"># $ 匹配字符串的结尾。</span></span><br><span class="line"><span class="comment"># \b 匹配一个单词的边界。</span></span><br><span class="line"><span class="comment"># \d 匹配任意数字。</span></span><br><span class="line"><span class="comment"># \D 匹配任意非数字字符。</span></span><br><span class="line"><span class="comment"># x? 匹配一个可选的 x 字符 (换言之，它匹配 1 次或者 0 次 x 字符)。</span></span><br><span class="line"><span class="comment"># x* 匹配0次或者多次 x 字符。</span></span><br><span class="line"><span class="comment"># x+ 匹配1次或者多次 x 字符。</span></span><br><span class="line"><span class="comment"># x&#123;n,m&#125; 匹配 x 字符，至少 n 次，至多 m 次。</span></span><br><span class="line"><span class="comment"># (a|b|c) 要么匹配 a，要么匹配 b，要么匹配 c。</span></span><br><span class="line"><span class="comment"># (x) 一般情况下表示一个记忆组 (remembered group)。你可以利用 re.search 函数返回对象的 groups() 函数获取它的值。</span></span><br><span class="line"><span class="comment"># 正则表达式中的点号通常意味着 “匹配任意单字符”</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/u010412858/article/details/83062200" target="_blank" rel="noopener">来源</a><br><br><br><br>Excel单元格内容: 主楼：45 裙楼：30<br><br>Word表格中有两个单元格，分别记录主楼、裙楼高度。如果格式规范可以直接用切片解决，但是原Excel表格中格式比较混乱，主楼后面的冒号中英符有混用，有不定量地出现空格的情况，主群楼高度有缺失，有浮点数等，不可预知的情况比较多…<br><br></p>
+<p>解决方式：<br><br>表达式： <code>\d+\.?\d*</code><br></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;py</span><br><span class="line">LouGao &#x3D; re.findall(r&quot;\d+\.?\d*&quot;, MuQiangGaoDu)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>['45', '30']```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#96;&#96;&#96;py</span><br><span class="line">slicenum &#x3D; MuQiangGaoDu.find(&#39;裙&#39;)</span><br><span class="line">    ZhuLouGao &#x3D; re.findall(r&quot;\d+\.?\d*&quot;, MuQiangGaoDu[0: slicenum])</span><br><span class="line">    QunLouGao &#x3D; re.findall(r&quot;\d+\.?\d*&quot;, MuQiangGaoDu[slicenum:])</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>['45']```<br< span><a href="/>">link</a></br<></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;# [&#39;30&#39;]</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h3 id="字符串前的-quot-b-quot-quot-u-quot-quot-r-quot-quot-f-quot"><a href="#字符串前的-quot-b-quot-quot-u-quot-quot-r-quot-quot-f-quot" class="headerlink" title="字符串前的&quot;b&quot; &quot;u&quot; &quot;r&quot; &quot;f&quot;"></a>字符串前的<code>&quot;b&quot; &quot;u&quot; &quot;r&quot; &quot;f&quot;</code><br></h3><p><a href="https://www.jb51.net/article/176601.htm" target="_blank" rel="noopener">参考</a><br><br>b” “前缀表示：后面字符串是bytes 类型。<br><br>用处：<br><br>网络编程中，服务器和浏览器只认bytes 类型数据。<br><br><br>PS: bytes与str的转换方式</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">str.encode(<span class="string">'utf-8'</span>)</span><br><span class="line">bytes.decode(<span class="string">'utf-8'</span>)</span><br></pre></td></tr></table></figure>
+<p><br><br><br>u” “后面字符串以 Unicode 格式 进行编码，一般用在中文字符串前面，防止因为源码储存格式问题，导致再次使用时出现乱码。<br><br><br><br><br>r” “去掉反斜杠的转移机制。<br><br>如<code>&quot;r\n\n\n&quot;</code>, 表示一个普通生字符串 <code>\n\n\n</code> 而不换行<br><br><br><br></p>
+<p>以 f开头表示在字符串内支持大括号内的python 表达式<br><br>如</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f'<span class="subst">&#123;name&#125;</span> done in <span class="subst">&#123;time.time() - t0:<span class="number">.2</span>f&#125;</span> s'</span>)</span><br><span class="line">OutPut: </span><br><span class="line">processing done <span class="keyword">in</span> <span class="number">1.00</span> s</span><br><span class="line">&lt;br /&gt;&lt;br /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Excel版本转化——xls-2-xlsx"><a href="#Excel版本转化——xls-2-xlsx" class="headerlink" title="Excel版本转化——xls 2 xlsx"></a>Excel版本转化——xls 2 xlsx</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com.client <span class="keyword">as</span> win32</span><br><span class="line"></span><br><span class="line">fname = <span class="string">"C:\\Code\\Python\\"</span> + filename + <span class="string">".xls"</span></span><br><span class="line">excel = win32.gencache.EnsureDispatch(<span class="string">'Excel.Application'</span>)</span><br><span class="line">wb = excel.Workbooks.Open(fname)</span><br><span class="line">wb.SaveAs(fname+<span class="string">"x"</span>, FileFormat = <span class="number">51</span>)</span><br><span class="line">wb.Close()</span><br><span class="line">excel.Application.Quit()</span><br></pre></td></tr></table></figure>
+<p>filename为文件名字符串<br><br><br></p>
+<h3 id="Word版本转化——doc-2-docx"><a href="#Word版本转化——doc-2-docx" class="headerlink" title="Word版本转化——doc 2 docx"></a>Word版本转化——doc 2 docx</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> win32com.client <span class="keyword">as</span> wc </span><br><span class="line"><span class="keyword">import</span> docx</span><br><span class="line"></span><br><span class="line">word = wc.Dispatch(<span class="string">"Word.Application"</span>)</span><br><span class="line">doc = word.Documents.Open(<span class="string">r"C:\\Code\\Python\\文件名.doc"</span>)</span><br><span class="line">doc.SaveAs(<span class="string">r"C:\\Code\\Python\\文件名.docx"</span>, <span class="number">12</span>)</span><br><span class="line">doc.Close</span><br><span class="line">word.Quit</span><br><span class="line">path = <span class="string">"文件名.docx"</span></span><br><span class="line">file = docx.Document(path)</span><br><span class="line"><span class="keyword">for</span> p <span class="keyword">in</span> file.paragraphs:</span><br><span class="line">    print(p.text)</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h3 id="读取xlsx文件中指定单元格的数据"><a href="#读取xlsx文件中指定单元格的数据" class="headerlink" title="读取xlsx文件中指定单元格的数据"></a>读取xlsx文件中指定单元格的数据</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"></span><br><span class="line">workbook = xlrd.open_workbook(filename + <span class="string">'.xlsx'</span>)</span><br><span class="line">sheet = workbook.sheets()[<span class="number">0</span>]  <span class="comment"># 指定索引的sheet，从0开始</span></span><br><span class="line">JianZhuMingCheng = sheet.cell(<span class="number">1</span>, <span class="number">2</span>).value  <span class="comment"># 单元格内容</span></span><br><span class="line"><span class="keyword">if</span> sheet.cell(<span class="number">5</span>, <span class="number">6</span>).ctype == <span class="number">2</span>:  <span class="comment"># 单元格内容的类型</span></span><br><span class="line">    ...  <span class="comment"># 0 empty, 1 string, 2 number, 3 date, 4 boolean, 5 error</span></span><br></pre></td></tr></table></figure>
+
+<p><br><br></p>
+<h3 id="更改docx文件的表格中的数值"><a href="#更改docx文件的表格中的数值" class="headerlink" title="更改docx文件的表格中的数值"></a>更改docx文件的表格中的数值</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> docx <span class="keyword">import</span> Document</span><br><span class="line"></span><br><span class="line">path = <span class="string">"C:\\Code\Python\\文件名.docx"</span></span><br><span class="line">document = Document(path)</span><br><span class="line">tables = document.tables</span><br><span class="line">table = tables[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置字体、字号</span></span><br><span class="line">document.styles[<span class="string">'Normal'</span>].font.name = <span class="string">u'仿宋'</span></span><br><span class="line">document.styles[<span class="string">'Normal'</span>].font.size = Pt(<span class="number">9</span>)</span><br><span class="line">document.styles[<span class="string">'Normal'</span>]._element.rPr.rFonts.set(qn(<span class="string">'w:eastAsia'</span>), <span class="string">u'仿宋'</span>)</span><br><span class="line"></span><br><span class="line">table.cell(<span class="number">0</span>, <span class="number">4</span>).text = <span class="string">'需要输入的内容或任意字符串对象'</span>  <span class="comment"># 指定Word表格中的索引,从0开始</span></span><br><span class="line">document.save(<span class="string">"C:\\Code\Python\\"</span> + filename + <span class="string">".docx"</span>)  <span class="comment"># filename为文件名字符串</span></span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/08/06/%E7%AC%94%E8%AE%B0%E2%80%94%E2%80%94%E7%9F%A5%E4%B9%8E%E6%AE%B5%E5%AD%90%E7%88%AC%E8%99%AB/" class="article-next" title="笔记——知乎段子爬虫"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "e93e5b8dbabfc5290b48",
+        clientSecret: "651c23461a0fedcec5009191d4d2e5fc9c216fc2",
+        repo: "Clarice-LJ.github.io",
+        owner: "Clarice-LJ",
+        admin: ["Clarice-LJ"],
+        id: "2020/08/10/Python转移Excel表格内容至Word",
+        distractionFreeMode: true,
+        title: "Python转移Excel表格内容至Word",
+        body: "http://yoursite.com/2020/08/10/Python%E8%BD%AC%E7%A7%BBExcel%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9%E8%87%B3Word/",
+        labels: ["python"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5b82f99f4652ea9887293bb610a5af47";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

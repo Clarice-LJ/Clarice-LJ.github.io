@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-08-12T00:58:08.001Z</updated>
+  <updated>2020-08-12T01:22:33.317Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python转移Excel表格内容至Word</title>
+    <link href="http://yoursite.com/2020/08/10/Python%E8%BD%AC%E7%A7%BBExcel%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9%E8%87%B3Word/"/>
+    <id>http://yoursite.com/2020/08/10/Python%E8%BD%AC%E7%A7%BBExcel%E8%A1%A8%E6%A0%BC%E5%86%85%E5%AE%B9%E8%87%B3Word/</id>
+    <published>2020-08-10T01:58:48.000Z</published>
+    <updated>2020-08-12T01:22:33.317Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;暑假在检测公司实习，整理幕墙安全检查的文件常常有一些复制粘贴的无脑操作，于是捣鼓了一下xlrd包(xlsx文件读取)和docx包(docx文件的写入)的一些基本操作，做个小记录。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>笔记——知乎段子爬虫</title>
@@ -400,27 +421,6 @@
     
       <category term="books" scheme="http://yoursite.com/categories/books/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>《月亮与六便士》</title>
-    <link href="http://yoursite.com/2020/03/18/%E3%80%8A%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/"/>
-    <id>http://yoursite.com/2020/03/18/%E3%80%8A%E6%9C%88%E4%BA%AE%E4%B8%8E%E5%85%AD%E4%BE%BF%E5%A3%AB%E3%80%8B/</id>
-    <published>2020-03-18T15:00:15.000Z</published>
-    <updated>2020-03-18T15:10:30.600Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;——威廉· 萨默赛特·毛姆（英）&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="books" scheme="http://yoursite.com/categories/books/"/>
-    
-    
-      <category term="毛姆" scheme="http://yoursite.com/tags/%E6%AF%9B%E5%A7%86/"/>
     
   </entry>
   
