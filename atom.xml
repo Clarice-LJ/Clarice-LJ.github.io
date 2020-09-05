@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-04T11:56:00.552Z</updated>
+  <updated>2020-09-05T11:57:24.663Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Anaconda笔记</title>
+    <link href="http://yoursite.com/2020/09/05/Anaconda%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/09/05/Anaconda%E7%AC%94%E8%AE%B0/</id>
+    <published>2020-09-05T11:36:06.000Z</published>
+    <updated>2020-09-05T11:57:24.663Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每次用点新模块都被python的环境搞得头大，果然该学的东西迟早都是要捡回来的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+      <category term="Anaconda" scheme="http://yoursite.com/tags/Anaconda/"/>
+    
+      <category term="conda" scheme="http://yoursite.com/tags/conda/"/>
+    
+  </entry>
   
   <entry>
     <title>献给我爱的每一分每一秒</title>
@@ -402,25 +427,6 @@
     
       <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>《人生的枷锁》</title>
-    <link href="http://yoursite.com/2020/03/18/%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E6%9E%B7%E9%94%81%E3%80%8B/"/>
-    <id>http://yoursite.com/2020/03/18/%E3%80%8A%E4%BA%BA%E7%94%9F%E7%9A%84%E6%9E%B7%E9%94%81%E3%80%8B/</id>
-    <published>2020-03-18T15:15:22.000Z</published>
-    <updated>2020-03-18T15:18:54.219Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;——威廉· 萨默赛特·毛姆（英）&lt;/p&gt;
-    
-    </summary>
-    
-    
-    
-      <category term="毛姆" scheme="http://yoursite.com/tags/%E6%AF%9B%E5%A7%86/"/>
     
   </entry>
   
