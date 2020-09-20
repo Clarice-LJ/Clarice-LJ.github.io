@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-09-05T13:11:54.583Z</updated>
+  <updated>2020-09-20T08:05:11.581Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>杂项摘记</title>
+    <link href="http://yoursite.com/2020/09/20/%E6%9D%82%E9%A1%B9%E6%91%98%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/09/20/%E6%9D%82%E9%A1%B9%E6%91%98%E8%AE%B0/</id>
+    <published>2020-09-20T07:55:16.000Z</published>
+    <updated>2020-09-20T08:05:11.581Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;找到高中的一个摘记本，摘抄来自菲茨杰拉德的《了不起的盖茨比》、卡尔维诺的《树上的男爵》、加缪的《鼠疫》和《局外人》、库切的《等待野蛮人》、余秀华的一些诗以及乱七八糟的其他东西。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PyQt5</title>
+    <link href="http://yoursite.com/2020/09/20/PyQt5/"/>
+    <id>http://yoursite.com/2020/09/20/PyQt5/</id>
+    <published>2020-09-20T02:38:48.000Z</published>
+    <updated>2020-09-20T03:03:58.684Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Qt Designer: ui文件转未py文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+      <category term="PyQt5" scheme="http://yoursite.com/tags/PyQt5/"/>
+    
+  </entry>
   
   <entry>
     <title>Anaconda笔记</title>
@@ -389,44 +438,6 @@
     
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cutecharts包的探索</title>
-    <link href="http://yoursite.com/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/"/>
-    <id>http://yoursite.com/2020/04/10/cutecharts%E5%8C%85%E7%9A%84%E6%8E%A2%E7%B4%A2/</id>
-    <published>2020-04-10T14:54:53.000Z</published>
-    <updated>2020-04-11T03:47:52.792Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;这真是一个充满少女心的包&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Wechat QR Code</title>
-    <link href="http://yoursite.com/2020/03/26/Wechat-QR-Code/"/>
-    <id>http://yoursite.com/2020/03/26/Wechat-QR-Code/</id>
-    <published>2020-03-26T11:42:17.000Z</published>
-    <updated>2020-04-10T09:37:45.443Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;加微信请备注二维码来源。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
     
   </entry>
   
