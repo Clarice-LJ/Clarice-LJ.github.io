@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-10-01T02:00:55.503Z</updated>
+  <updated>2020-10-08T01:46:00.706Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>嵌入式数据库SQLite</title>
+    <link href="http://yoursite.com/2020/10/07/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93SQLite/"/>
+    <id>http://yoursite.com/2020/10/07/%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93SQLite/</id>
+    <published>2020-10-07T11:40:34.000Z</published>
+    <updated>2020-10-08T01:46:00.706Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;嵌入式数据库SQLite本身是一个文件，由C写成，具有体积小的优点，便于集成到各种应用程序中。&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
+    
+    
+      <category term="SQLite" scheme="http://yoursite.com/tags/SQLite/"/>
+    
+  </entry>
   
   <entry>
     <title>《战争与和平》</title>
@@ -109,7 +130,7 @@
     <link href="http://yoursite.com/2020/09/04/%E7%8C%AE%E7%BB%99%E6%88%91%E7%88%B1%E7%9A%84%E6%AF%8F%E4%B8%80%E5%88%86%E6%AF%8F%E4%B8%80%E7%A7%92/"/>
     <id>http://yoursite.com/2020/09/04/%E7%8C%AE%E7%BB%99%E6%88%91%E7%88%B1%E7%9A%84%E6%AF%8F%E4%B8%80%E5%88%86%E6%AF%8F%E4%B8%80%E7%A7%92/</id>
     <published>2020-09-04T11:07:12.000Z</published>
-    <updated>2020-09-04T11:56:00.552Z</updated>
+    <updated>2020-10-08T02:51:54.817Z</updated>
     
     <summary type="html">
     
@@ -410,27 +431,6 @@
     
     
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《不朽》</title>
-    <link href="http://yoursite.com/2020/04/11/%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B/"/>
-    <id>http://yoursite.com/2020/04/11/%E3%80%8A%E4%B8%8D%E6%9C%BD%E3%80%8B/</id>
-    <published>2020-04-11T04:57:33.000Z</published>
-    <updated>2020-04-21T03:06:20.516Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;——米兰·昆德拉&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="books" scheme="http://yoursite.com/categories/books/"/>
-    
-    
-      <category term="昆德拉" scheme="http://yoursite.com/tags/%E6%98%86%E5%BE%B7%E6%8B%89/"/>
     
   </entry>
   
