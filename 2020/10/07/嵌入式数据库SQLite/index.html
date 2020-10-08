@@ -124,7 +124,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sqlite3模块API"><span class="toc-number">1.</span> <span class="toc-text">sqlite3模块API</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sqlite3模块API"><span class="toc-number">1.</span> <span class="toc-text">sqlite3模块API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用语句及操作"><span class="toc-number">2.</span> <span class="toc-text">常用语句及操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建表"><span class="toc-number">2.1.</span> <span class="toc-text">创建表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Insert语句"><span class="toc-number">2.2.</span> <span class="toc-text">Insert语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SELECT语句"><span class="toc-number">2.3.</span> <span class="toc-text">SELECT语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WHERE子句"><span class="toc-number">2.4.</span> <span class="toc-text">WHERE子句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UPDATE语句"><span class="toc-number">2.5.</span> <span class="toc-text">UPDATE语句</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -184,7 +184,7 @@
 </li>
 </ol>
 <p><br><br></p>
-<h3 id="sqlite3模块API"><a href="#sqlite3模块API" class="headerlink" title="sqlite3模块API"></a>sqlite3模块API</h3><ul>
+<h2 id="sqlite3模块API"><a href="#sqlite3模块API" class="headerlink" title="sqlite3模块API"></a>sqlite3模块API</h2><ul>
 <li><p>sqlite3.connect(database [,timeout, other optional arguments])</p>
 <ul>
 <li><p>当一个数据库被多个连接访问，且其中一个修改了数据库，此时 SQLite 数据库被锁定，直到事务提交。timeout 参数表示连接等待锁定的持续时间，直到发生异常断开连接。timeout 参数默认是 5.0（5 秒）</p>
@@ -204,9 +204,72 @@
 <li>e.g.cursor.execute(“insert into people values (?, ?)”, (who, age))</li>
 </ul>
 </li>
-<li></li>
+<li><p>connection.commit()</p>
+<ul>
+<li>该方法提交当前的事务。如果未调用该方法，那么自上一次调用 commit() 以来所做的任何动作对其他数据库连接来说是不可见的。</li>
 </ul>
+</li>
+<li><p>connection.close()</p>
+<ul>
+<li>该方法关闭数据库连接。不会自动调用 commit()。如果未调用 commit() 方法就直接关闭数据库连接，所做的所有更改将全部丢失。</li>
+</ul>
+</li>
+</ul>
+<p><br><br></p>
+<h2 id="常用语句及操作"><a href="#常用语句及操作" class="headerlink" title="常用语句及操作"></a>常用语句及操作</h2><h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>CREATE TABLE 语句的基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE database_name.table_name(</span><br><span class="line">   column1 datatype  PRIMARY KEY(one or more columns),</span><br><span class="line">   column2 datatype,</span><br><span class="line">   column3 datatype,</span><br><span class="line">   .....</span><br><span class="line">   columnN datatype,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<br>
+e.g.
 
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sqlite3</span><br><span class="line"></span><br><span class="line">conn = sqlite3.connect(<span class="string">'test.db'</span>)  <span class="comment"># 访问或创建数据库</span></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Opened database successfully"</span></span><br><span class="line">c = conn.cursor()  <span class="comment"># 创建cursor</span></span><br><span class="line">c.execute(<span class="string">'''CREATE TABLE COMPANY</span></span><br><span class="line"><span class="string">       (ID INT PRIMARY KEY     NOT NULL,</span></span><br><span class="line"><span class="string">       NAME           TEXT    NOT NULL,</span></span><br><span class="line"><span class="string">       AGE            INT     NOT NULL,</span></span><br><span class="line"><span class="string">       ADDRESS        CHAR(50),</span></span><br><span class="line"><span class="string">       SALARY         REAL);'''</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Table created successfully"</span></span><br><span class="line">conn.commit()  <span class="comment"># 提交事务</span></span><br><span class="line">conn.close()  <span class="comment"># 关闭连接</span></span><br></pre></td></tr></table></figure>
+<p>该实例创建了一个 COMPANY 表，ID 作为主键，NOT NULL 的约束表示在表中创建纪录时这些字段不能为 NULL.<br><br><br></p>
+<h3 id="Insert语句"><a href="#Insert语句" class="headerlink" title="Insert语句"></a>Insert语句</h3><p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO TABLE_NAME [(column1, column2, column3,...columnN)]  </span><br><span class="line">VALUES (value1, value2, value3,...valueN);</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>也可直接为表中的所有列添加值（需确保值的顺序与列在表中的顺序一致）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO TABLE_NAME VALUES (value1,value2,value3,...valueN);</span><br></pre></td></tr></table></figure>
+<br>
+e.g.
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(<span class="string">'test.db'</span>)</span><br><span class="line">c = conn.cursor()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Opened database successfully"</span></span><br><span class="line"></span><br><span class="line">c.execute(<span class="string">"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \</span></span><br><span class="line"><span class="string">      VALUES (1, 'Paul', 32, 'California', 20000.00 )"</span>)</span><br><span class="line"></span><br><span class="line">c.execute(<span class="string">"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \</span></span><br><span class="line"><span class="string">      VALUES (2, 'Allen', 25, 'Texas', 15000.00 )"</span>)</span><br><span class="line"></span><br><span class="line">c.execute(<span class="string">"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \</span></span><br><span class="line"><span class="string">      VALUES (3, 'Teddy', 23, 'Norway', 20000.00 )"</span>)</span><br><span class="line"></span><br><span class="line">c.execute(<span class="string">"INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) \</span></span><br><span class="line"><span class="string">      VALUES (4, 'Mark', 25, 'Rich-Mond ', 65000.00 )"</span>)</span><br><span class="line"></span><br><span class="line">conn.commit()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Records created successfully"</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+
+<h3 id="SELECT语句"><a href="#SELECT语句" class="headerlink" title="SELECT语句"></a>SELECT语句</h3><p>基本语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN FROM table_name;</span><br></pre></td></tr></table></figure>
+<p>column1, column2…是表的字段。如果需要获取所有可用的字段，那么可以使用下面的语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM table_name;</span><br></pre></td></tr></table></figure>
+<br>
+e.g.
+
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">conn = sqlite3.connect(<span class="string">'test.db'</span>)</span><br><span class="line">c = conn.cursor()</span><br><span class="line"><span class="keyword">print</span> <span class="string">"Opened database successfully"</span></span><br><span class="line"></span><br><span class="line">cursor = c.execute(<span class="string">"SELECT id, name, address, salary  from COMPANY"</span>)</span><br><span class="line"><span class="keyword">for</span> row <span class="keyword">in</span> cursor:</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"ID = "</span>, row[<span class="number">0</span>]</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"NAME = "</span>, row[<span class="number">1</span>]</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"ADDRESS = "</span>, row[<span class="number">2</span>]</span><br><span class="line">   <span class="keyword">print</span> <span class="string">"SALARY = "</span>, row[<span class="number">3</span>], <span class="string">"\n"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"Operation done successfully"</span></span><br><span class="line">conn.close()</span><br></pre></td></tr></table></figure>
+<p><br><br></p>
+<h3 id="WHERE子句"><a href="#WHERE子句" class="headerlink" title="WHERE子句"></a>WHERE子句</h3><p>SQLite的 WHERE 子句用于指定从一个表或多个表中获取数据的条件。用于过滤记录，可用在 SELECT、UPDATE、DELETE 等语句中。<br><br><br><br>带有 WHERE 子句的 SELECT 语句的基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT column1, column2, columnN </span><br><span class="line">FROM table_name</span><br><span class="line">WHERE [condition]</span><br></pre></td></tr></table></figure>
+<br>
+e.g.
+
+<p>1.运用比较运算符指定条件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM COMPANY WHERE AGE &gt;&#x3D; 25 AND SALARY &gt;&#x3D; 65000</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>2.运用逻辑运算符NOT<br><br>如列出 AGE 不为 NULL 的所有记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM COMPANY WHERE AGE IS NOT NULL</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>3.运用逻辑运算符LIKE<br><br>如列出 NAME 以 ‘Ki’ 开始的所有记录，’Ki’ 之后的字符不做限制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM COMPANY WHERE NAME LIKE &#39;Ki%&#39;</span><br></pre></td></tr></table></figure>
+<br>
+4.<br>
+列出 AGE 的值为 25 或 27 的所有记录：
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM COMPANY WHERE AGE IN ( 25, 27 )</span><br></pre></td></tr></table></figure>
+<br>
+
+<p>5.<br><br>列出 AGE 的值在 25 与 27 之间的所有记录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM COMPANY WHERE AGE BETWEEN 25 AND 27</span><br></pre></td></tr></table></figure>
+<br>
+
+<h3 id="UPDATE语句"><a href="#UPDATE语句" class="headerlink" title="UPDATE语句"></a>UPDATE语句</h3>
         
     </section>
 </article>
