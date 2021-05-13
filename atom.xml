@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-04-06T03:19:22.880Z</updated>
+  <updated>2021-05-13T15:59:52.154Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《喧哗与骚动》</title>
+    <link href="http://yoursite.com/2021/05/13/%E3%80%8A%E5%96%A7%E5%93%97%E4%B8%8E%E9%AA%9A%E5%8A%A8%E3%80%8B/"/>
+    <id>http://yoursite.com/2021/05/13/%E3%80%8A%E5%96%A7%E5%93%97%E4%B8%8E%E9%AA%9A%E5%8A%A8%E3%80%8B/</id>
+    <published>2021-05-13T15:57:59.000Z</published>
+    <updated>2021-05-13T15:59:52.154Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;——威廉·福克纳&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>《寻欢作乐》</title>
@@ -410,27 +429,6 @@
     
       <category term="books" scheme="http://yoursite.com/categories/books/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>《堂吉诃德》</title>
-    <link href="http://yoursite.com/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/"/>
-    <id>http://yoursite.com/2020/04/21/%E3%80%8A%E5%A0%82%E5%90%89%E8%AF%83%E5%BE%B7%E3%80%8B/</id>
-    <published>2020-04-21T03:08:18.000Z</published>
-    <updated>2020-04-21T03:37:32.353Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;——米盖尔·德·塞万提斯&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="books" scheme="http://yoursite.com/categories/books/"/>
-    
-    
-      <category term="塞万提斯" scheme="http://yoursite.com/tags/%E5%A1%9E%E4%B8%87%E6%8F%90%E6%96%AF/"/>
     
   </entry>
   
