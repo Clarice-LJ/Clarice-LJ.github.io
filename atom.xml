@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-07-01T15:58:23.873Z</updated>
+  <updated>2021-07-16T01:46:13.172Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>《佩德罗·巴拉莫》</title>
+    <link href="http://yoursite.com/2021/07/16/%E3%80%8A%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E5%B7%B4%E6%8B%89%E8%8E%AB%E3%80%8B/"/>
+    <id>http://yoursite.com/2021/07/16/%E3%80%8A%E4%BD%A9%E5%BE%B7%E7%BD%97%C2%B7%E5%B7%B4%E6%8B%89%E8%8E%AB%E3%80%8B/</id>
+    <published>2021-07-16T01:42:24.000Z</published>
+    <updated>2021-07-16T01:46:13.172Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;——胡安·鲁尔福&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="books" scheme="http://yoursite.com/categories/books/"/>
+    
+    
+      <category term="魔幻现实主义" scheme="http://yoursite.com/tags/%E9%AD%94%E5%B9%BB%E7%8E%B0%E5%AE%9E%E4%B8%BB%E4%B9%89/"/>
+    
+  </entry>
   
   <entry>
     <title>《道林·格雷的画像》</title>
@@ -410,27 +431,6 @@
     
     
       <category term="昆德拉" scheme="http://yoursite.com/tags/%E6%98%86%E5%BE%B7%E6%8B%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>又见胡汉三之Arduino</title>
-    <link href="http://yoursite.com/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/"/>
-    <id>http://yoursite.com/2020/05/10/%E5%8F%88%E8%A7%81%E8%83%A1%E6%B1%89%E4%B8%89%E4%B9%8BArduino/</id>
-    <published>2020-05-10T03:53:31.000Z</published>
-    <updated>2020-05-10T04:12:03.192Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;虽然以前没学多少，但是捡回来还是需要一点时间的。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="daily" scheme="http://yoursite.com/categories/daily/"/>
-    
-    
-      <category term="Arduino" scheme="http://yoursite.com/tags/Arduino/"/>
     
   </entry>
   
